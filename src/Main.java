@@ -3,7 +3,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         //int digits[] = new int[]{0,1,2,2,3,0,4,2};
-        System.out.println(scoreOfString("sa"));
+        System.out.println(isPalindrome("race a car"));
     }
 
     public static List<String> fizzBuzz(int n) {
@@ -307,12 +307,30 @@ public class Main {
         }
     }
 
-    public void reverseString(char[] s) {
+    public static void reverseString(char[] s) {
         for (int i = 0, j = s.length - 1; i < s.length / 2; i++, j--) {
             char temp = s[i];
             s[i] = s[j];
             s[j] = temp;
         }
+    }
+
+    public static boolean isPalindrome(String s) {
+        String check = "";
+        for(int i = 0; i<s.length();i++){
+            if(Character.isLetterOrDigit(s.charAt(i))){
+                check += s.charAt(i);
+            }
+        }
+        check = check.toLowerCase();
+        int x = check.length()-1;
+        for(int i = 0; i<x; i++){
+            if(check.charAt(i)!=check.charAt(x)){
+                return false;
+            }
+            x--;
+        }
+        return true;
     }
 }
 
