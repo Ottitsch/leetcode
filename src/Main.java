@@ -486,6 +486,19 @@ public class Main {
 
         return stack.isEmpty();
     }
+
+    public String clearDigits(String s) {
+        String temp = "";
+        for (int i=0;i<s.length();i++){
+            if(!Character.isDigit(s.charAt(i))){
+                temp+=s.charAt(i);
+            } else {
+                temp=temp.substring(0,temp.length()-1);
+            }
+
+        }
+        return temp;
+    }
 }
 
 /*
