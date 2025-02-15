@@ -523,3 +523,40 @@ class ListNode {
       ListNode(int val) { this.val = val; }
       ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }*/
+
+/*class MinStack {
+    ArrayList <Integer>min;
+    Stack<Integer>stack;
+    int sml=Integer.MAX_VALUE;
+    public MinStack() {
+        this.min=new ArrayList<>();
+        this.stack=new Stack<>();
+    }
+
+    public void push(int val) {
+        if(val<=sml){
+            sml=val;
+            min.add(val);
+        }
+        stack.push(val);
+    }
+
+    public void pop() {
+        if (!stack.isEmpty()) {
+            int top = stack.pop();
+            if (!min.isEmpty() && top == min.get(min.size() - 1)) {
+                min.remove(min.size() - 1);
+                sml = min.isEmpty() ? Integer.MAX_VALUE : min.get(min.size() - 1);
+            }
+        }
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int getMin() {
+        if(!min.isEmpty())return min.get(min.size()-1);
+        return min.get(0);
+    }
+}*/
