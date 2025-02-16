@@ -3,7 +3,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         //int digits[] = new int[]{0,1,2,2,3,0,4,2};
-        System.out.println(isPalindrome("race a car"));
+        System.out.println(removeDuplicates("abbaca"));
     }
 
     public static List<String> fizzBuzz(int n) {
@@ -512,6 +512,33 @@ public class Main {
             }
         }
         return stack.size();
+    }
+
+    public static String removeDuplicates(String s) {
+        return removeRecursive(s);
+    }
+
+    public static String removeRecursive(String s){
+        Stack<Character> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+        boolean foundDuplicate = false;
+        for (int i=0;i<s.length();i++){
+            if(!stack.isEmpty()){
+                if(stack.peek()!=s.charAt(i)){
+                    stack.push(s.charAt(i));
+                } else {
+                    stack.pop();
+                    foundDuplicate=true;
+                }
+            } else {
+                stack.push(s.charAt(i));
+            }
+        }
+        stack.forEach(sb::append);
+        if(foundDuplicate==false){
+            return sb.toString();
+        }
+        return removeRecursive(sb.toString());
     }
 }
 
