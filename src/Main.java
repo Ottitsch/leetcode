@@ -580,6 +580,30 @@ public class Main {
         }
         return result;
     }
+
+    public String reversePrefix(String word, char ch) {
+        Stack<Character> st=new Stack<>();
+        String result="";
+        boolean found=false;
+        for(char c : word.toCharArray()){
+            if(c!=ch){
+                st.push(c);
+            } else {
+                st.push(c);
+                found=true;
+                break;
+            }
+        }
+        int temp=st.size();
+        while (!st.isEmpty()){
+            result+=st.pop();
+        }
+        result += word.substring(temp,word.length());
+        if(found==false){
+            return word;
+        }
+        return result;
+    }
 }
 
 /*
