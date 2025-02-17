@@ -559,6 +559,27 @@ public class Main {
 
         return result.toString();
     }
+
+    public String removeOuterParentheses(String s) {
+        Stack<Character> st=new Stack<>();
+        String result="";
+        for(int i=0;i<s.length();i++)
+        {
+            if(st.size()<1 && s.charAt(i)=='(') st.push('(');
+            else if(s.charAt(i)=='(')
+            {
+                result+='(';
+                st.push('(');
+            }
+            else if(st.size()==1 && s.charAt(i)==')') st.pop();
+            else
+            {
+                st.pop();
+                result+=')';
+            }
+        }
+        return result;
+    }
 }
 
 /*
