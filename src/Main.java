@@ -604,6 +604,27 @@ public class Main {
         }
         return result;
     }
+
+    public boolean backspaceCompare(String s, String t) {
+        Stack<Character> stackS = new Stack<>();
+        Stack<Character> stackT = new Stack<>();
+        stackS = backspaceCompareHelper(stackS,s);
+        stackT= backspaceCompareHelper(stackT,t);
+        return stackS.equals(stackT);
+    }
+
+    public Stack backspaceCompareHelper(Stack stack,String word){
+        for(char c : word.toCharArray()){
+            if(c!='#'){
+                stack.push(c);
+            } else {
+                if(!stack.isEmpty()){
+                    stack.pop();
+                }
+            }
+        }
+        return stack;
+    }
 }
 
 /*
