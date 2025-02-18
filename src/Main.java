@@ -625,6 +625,38 @@ public class Main {
         }
         return stack;
     }
+
+    public boolean checkValidString(String s) {
+        Stack<Integer> opening = new Stack<>();
+        Stack<Integer> flag = new Stack<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(') {
+                opening.push(i);
+            } else if (c == '*') {
+                flag.push(i);
+            } else if (c == ')') {
+                if (!opening.isEmpty()) {
+                    opening.pop();
+                } else if (!flag.isEmpty()) {
+                    flag.pop();
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        while (!opening.isEmpty() && !flag.isEmpty()) {
+            if (opening.peek() > flag.peek()) {
+                return false;
+            }
+            opening.pop();
+            flag.pop();
+        }
+
+        return opening.isEmpty();
+    }
 }
 
 /*
