@@ -29,3 +29,10 @@ WHERE LENGTH(content) > 15
 SELECT eu.unique_id AS unique_id, e.name
 FROM Employees e
 LEFT JOIN EmployeeUNI eu USING(id)
+
+-- Not Boring Movies
+SELECT *
+FROM Cinema
+WHERE id % 2 != 0 and description != "boring"
+ORDER BY id DESC
+
