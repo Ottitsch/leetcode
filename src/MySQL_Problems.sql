@@ -42,8 +42,10 @@ FROM Employees
 WHERE salary < 30000 and manager_id NOT IN (SELECT employee_id FROM Employees)
 ORDER BY employee_id
 
-
-
+-- Exchange Seats
+SELECT ROW_NUMBER() OVER() id, student
+FROM seat
+ORDER BY IF(MOD(id, 2) = 0, id-1, id+1)
 
 
 
