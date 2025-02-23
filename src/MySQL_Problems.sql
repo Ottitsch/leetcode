@@ -36,3 +36,26 @@ FROM Cinema
 WHERE id % 2 != 0 and description != "boring"
 ORDER BY id DESC
 
+-- Employees Whose Manager Left the Company
+SELECT employee_id
+FROM Employees
+WHERE salary < 30000 and manager_id NOT IN (SELECT employee_id FROM Employees)
+ORDER BY employee_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
