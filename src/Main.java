@@ -3,6 +3,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         //int digits[] = new int[]{0,1,2,2,3,0,4,2};
+        findMedianSortedArrays(new int[]{3, 2, 1}, new int[]{4, 5, 6});
         System.out.println(removeDuplicates("abbaca"));
     }
 
@@ -733,6 +734,18 @@ public class Main {
         }
         return matches;
     }*/
+
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int[] nums = new int[nums1.length + nums2.length];
+        System.arraycopy(nums1, 0, nums, 0, nums1.length);
+        System.arraycopy(nums2, 0, nums, nums1.length, nums2.length);
+        Arrays.sort(nums);
+        if(nums.length%2!=0){
+            int temp =nums[nums.length/2]+nums[nums.length/2-1];
+            return temp/2+temp%2;
+        }
+        return nums[nums.length/2];
+    }
 }
 
 /*
