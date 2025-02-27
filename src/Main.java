@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         //int digits[] = new int[]{0,1,2,2,3,0,4,2};
         findMedianSortedArrays(new int[]{3, 2, 1}, new int[]{4, 5, 6});
-        System.out.println(removeDuplicates("abbaca"));
+        System.out.println(climbStairs(3));
     }
 
     public static List<String> fizzBuzz(int n) {
@@ -758,6 +758,24 @@ public class Main {
             }
         }
         return count;
+    }
+
+    public static int climbStairs(int n) {
+        if(n<2){
+            return n;
+        }
+        HashMap<Integer,Integer> hm = new HashMap<Integer, Integer>();
+        int i=2;
+        if(n>=2){
+            hm.put(0,0);
+            hm.put(1,1);
+            hm.put(2,2);
+        }
+        while (i<n){
+            i++;
+            hm.put(i,hm.get(i-1)+hm.get(i-2));
+        }
+        return hm.get(i);
     }
 }
 
