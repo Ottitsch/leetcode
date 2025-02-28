@@ -790,6 +790,22 @@ public class Main {
         }
         return Math.min(first, second);
     }
+
+    public int tribonacci(int n) {
+        if(n<2){
+            return n;
+        }
+        int a=0,b=1,c=1,d;
+        while (n-- >2){
+            d=c+b+a;
+            a=b;
+            b=c;
+            c=d;
+        }
+        return c;
+    }
+
+
 }
 
 /*
