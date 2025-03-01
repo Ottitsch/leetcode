@@ -706,35 +706,6 @@ public class Main {
         return 0;
     }
 
-    //Insufficient Solution:
-    /*
-    public void findSecretWord(String[] words, Master master) {
-        Random random = new Random();
-        int matches = 0;
-        for (int i = 0; i < 10 && matches != 6; i++) {
-            String guess = words[random.nextInt(words.length)];
-            matches = master.guess(guess);
-
-            List<String> candidates = new ArrayList<>();
-            for (String word : words) {
-                if (matches == getMatches(guess, word)) {
-                    candidates.add(word);
-                }
-            }
-            words = candidates.toArray(new String[0]);
-        }
-    }
-
-    private int getMatches(String word1, String word2) {
-        int matches = 0;
-        for (int i = 0; i < word1.length(); i++) {
-            if (word1.charAt(i) == word2.charAt(i)) {
-                matches++;
-            }
-        }
-        return matches;
-    }*/
-
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int[] nums = new int[nums1.length + nums2.length];
         System.arraycopy(nums1, 0, nums, 0, nums1.length);
