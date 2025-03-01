@@ -2,9 +2,11 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        //int digits[] = new int[]{0,1,2,2,3,0,4,2};
-        findMedianSortedArrays(new int[]{3, 2, 1}, new int[]{4, 5, 6});
-        System.out.println(climbStairs(3));
+        int[][] grid = {
+                {0, 1}
+        };
+        //findMedianSortedArrays(new int[]{3, 2, 1}, new int[]{4, 5, 6});
+        System.out.println(islandPerimeter(grid));
     }
 
     public static List<String> fizzBuzz(int n) {
@@ -776,7 +778,24 @@ public class Main {
         return c;
     }
 
-
+    public static int islandPerimeter(int[][] grid) {
+        if(grid == null || grid.length == 0)    return 0;
+        int sum = 0;
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[0].length; j++){
+                if(grid[i][j] == 1){
+                    sum += 4;
+                    if(i > 0 && grid[i-1][j] == 1){
+                        sum -= 2;
+                    }
+                    if(j > 0 && grid[i][j-1] == 1){
+                        sum -= 2;
+                    }
+                }
+            }
+        }
+        return sum;
+    }
 }
 
 /*
