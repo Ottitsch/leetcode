@@ -796,6 +796,29 @@ public class Main {
         }
         return sum;
     }
+
+
+    // STORE INTO HASHMAP
+    // THEN AFTERWARDS STORE HASHMAP INTO MINHEAP
+    // THEN CONVERT MINHEAP TO int[]
+    public int[] topKFrequent(int[] nums, int k) {
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for (int i=0;i<nums.length;i++){
+            hm.put(nums[i],hm.getOrDefault(nums[i],0)+1);
+        }
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>(
+                Comparator.comparingInt(hm::get)
+        );
+
+        for (int key : hm.keySet()) {
+            minHeap.add(key);
+            if (minHeap.size() > k) {
+                minHeap.poll(); // Remove the least frequent element
+            }
+        }
+
+        return minHeap.stream().mapToInt(Integer::intValue).toArray();
+    }
 }
 
 /*
