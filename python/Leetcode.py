@@ -27,3 +27,15 @@ def getConcatenation(self, nums):
     for i in range(0,len(nums)):
         ans.append(nums[i])
     return ans
+
+def containsDuplicate(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: bool
+    """
+    mySet = set()
+    for i in range(0,len(nums)):
+        if nums[i] in mySet:
+            return True
+        mySet.add(nums[i])
+    return False
