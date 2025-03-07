@@ -39,3 +39,18 @@ def containsDuplicate(self, nums):
             return True
         mySet.add(nums[i])
     return False
+
+def isAnagram(s, t):
+    """
+    :type s: str
+    :type t: str
+    :rtype: bool
+    """
+    if len(s) != len(t):
+        return False
+    for idx in set(s):
+        if s.count(idx) != t.count(idx):
+            return False
+    return True
+
+print(isAnagram("anagram","nagaram"))
