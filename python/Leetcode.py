@@ -53,4 +53,24 @@ def isAnagram(s, t):
             return False
     return True
 
-print(isAnagram("anagram","nagaram"))
+def twoSum(nums, target):
+    """
+    :type nums: List[int]
+    :type target: int
+    :rtype: List[int]
+    """
+    left = 0
+    right = len(nums)-1
+    pos = [(value, index) for index, value in enumerate(nums)]
+    pos.sort()
+    while(left<right):
+        sum = pos[left][0]+pos[right][0]
+        if(sum==target):
+            break
+        if(sum<target):
+            left+=1
+        else:
+            right-=1
+    return pos[left][1],pos[right][1]
+
+twoSum([2,7,11,15],9)
