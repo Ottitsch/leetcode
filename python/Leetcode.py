@@ -1,3 +1,4 @@
+import heapq
 from collections import defaultdict
 
 
@@ -120,3 +121,15 @@ def majorityElement(nums: list[int]):
     :rtype: int
     """
     return sorted(nums)[len(nums)/2]
+
+def sortArray(nums: list[int]):
+    """
+    :type nums: List[int]
+    :rtype: List[int]
+    """
+    minHeap = []
+    for num in nums:
+        heapq.heappush(minHeap,num)
+    for i in range(len(nums)):
+        nums[i] = heapq.heappop(minHeap)
+    return nums
