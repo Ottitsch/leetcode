@@ -73,4 +73,17 @@ def twoSum(nums, target):
             right-=1
     return pos[left][1],pos[right][1]
 
-twoSum([2,7,11,15],9)
+def longestCommonPrefix(self, strs):
+    """
+    :type strs: List[str]
+    :rtype: str
+    """
+    typesafe: str = "hello"
+    prefix = strs[0]
+    for word in strs[1:]:
+        while not word.startswith(prefix):
+            prefix = prefix[:-1]
+            if not prefix:
+                return ""
+
+    return prefix
