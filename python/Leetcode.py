@@ -100,3 +100,18 @@ def groupAnagrams(self, strs: list[str]):
     for str in strs:
         dict[tuple(sorted(str))].append(str)
     return list(dict.values())
+
+def removeElement(nums: list[int], val: int):
+    """
+    :type nums: List[int]
+    :type val: int
+    :rtype: int
+    """
+    k=0
+    for num in nums:
+        if(num!=val):
+            nums[k]=num
+            k+=1
+    return k
+
+removeElement([3,2,2,3],3)
