@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 def fizzBuzz(self, n):
     """
     :type n: int
@@ -87,3 +90,13 @@ def longestCommonPrefix(self, strs):
                 return ""
 
     return prefix
+
+def groupAnagrams(self, strs: list[str]):
+    """
+    :type strs: List[str]
+    :rtype: List[List[str]]
+    """
+    dict = defaultdict(list)
+    for str in strs:
+        dict[tuple(sorted(str))].append(str)
+    return list(dict.values())
