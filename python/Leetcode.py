@@ -133,3 +133,32 @@ def sortArray(nums: list[int]):
     for i in range(len(nums)):
         nums[i] = heapq.heappop(minHeap)
     return nums
+
+def sortColors(nums: list[int]):
+    """
+    :type nums: List[int]
+    :rtype: None Do not return anything, modify nums in-place instead.
+    """
+    red=0
+    white=0
+    blue=0
+    for color in nums:
+        if color==0:
+            red+=1
+        if color==1:
+            white+=1
+        if color==2:
+            blue+=1
+    k = len(nums)
+    while blue>0:
+        nums[k]=2
+        k-=1
+        blue-=1
+    while white>0:
+        nums[k]=1
+        k-=1
+        white-=1
+    while red>0:
+        nums[k]=0
+        k-=1
+        red-=1
