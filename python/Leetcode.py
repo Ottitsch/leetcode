@@ -114,4 +114,9 @@ def removeElement(nums: list[int], val: int):
             k+=1
     return k
 
-removeElement([3,2,2,3],3)
+def majorityElement(nums: list[int]):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    return sorted(nums)[len(nums)/2]
