@@ -162,3 +162,20 @@ def sortColors(nums: list[int]):
         nums[k]=0
         k-=1
         red-=1
+
+def lastStoneWeight(stones: list[int]):
+    """
+    :type stones: List[int]
+    :rtype: int
+    """
+    minheap = []
+    for stone in stones:
+        heapq.heappush(minheap,-stone)
+    while len(minheap)>1:
+        y=heapq.heappop(minheap)
+        x=heapq.heappop(minheap)
+        if(x!=y):
+            heapq.heappush(minheap,y-x)
+    if minheap:
+        return heapq.heappop(minheap)*-1
+    return 0
