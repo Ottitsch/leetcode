@@ -191,3 +191,20 @@ def leastInterval(tasks: list[str], n: int):
     max_freq_count = sum(1 for count in task_counts.values() if count == max_freq)
     min_time = (max_freq - 1) * (n + 1) + max_freq_count
     return max(len(tasks), min_time)
+
+def findWords(words: list[str]):
+    """
+    :type words: List[str]
+    :rtype: List[str]
+    """
+    rtype = []
+    for word in words:
+        if canBeTyped("qwertyuiop",word) or canBeTyped("asdfghjkl",word) or canBeTyped("zxcvbnm",word):
+            rtype.append(word)
+    return rtype
+
+def canBeTyped(letters: str, word):
+    for letter in word:
+        if not letters.__contains__(letter.lower()):
+            return False
+    return True
