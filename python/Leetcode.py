@@ -1,5 +1,5 @@
 import heapq
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 def fizzBuzz(self, n):
@@ -179,3 +179,15 @@ def lastStoneWeight(stones: list[int]):
     if minheap:
         return heapq.heappop(minheap)*-1
     return 0
+
+def leastInterval(tasks: list[str], n: int):
+    """
+    :type tasks: List[str]
+    :type n: int
+    :rtype: int
+    """
+    task_counts = Counter(tasks)
+    max_freq = max(task_counts.values())
+    max_freq_count = sum(1 for count in task_counts.values() if count == max_freq)
+    min_time = (max_freq - 1) * (n + 1) + max_freq_count
+    return max(len(tasks), min_time)
