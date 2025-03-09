@@ -208,3 +208,18 @@ def canBeTyped(letters: str, word):
         if not letters.__contains__(letter.lower()):
             return False
     return True
+
+def findContentChildren(g: list[int], s: list[int]):
+    """
+    :type g: List[int]
+    :type s: List[int]
+    :rtype: int
+    """
+    g.sort(),s.sort()
+    j=0
+    for i in range(len(s)):
+        if(j==len(g)):
+            break
+        if(g[j]<=s[i]):
+            j+=1
+    return j
