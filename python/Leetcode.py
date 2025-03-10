@@ -223,3 +223,20 @@ def findContentChildren(g: list[int], s: list[int]):
         if(g[j]<=s[i]):
             j+=1
     return j
+
+def maxProfit(prices: list[int]):
+    """
+    :type prices: List[int]
+    :rtype: int
+    """
+    maxProfit = 0
+    minPurchase = prices[0]
+    for i in range(1, len(prices)):
+        maxProfit = max(maxProfit, prices[i] - minPurchase)
+        minPurchase = min(minPurchase, prices[i])
+    return maxProfit
+
+
+print(maxProfit([7,6,4,3,1]))
+
+
