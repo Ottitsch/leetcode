@@ -237,6 +237,11 @@ def maxProfit(prices: list[int]):
     return maxProfit
 
 
-print(maxProfit([7,6,4,3,1]))
+def reverseString(s: list[str]):
+    """
+    :type s: List[str]
+    :rtype: None Do not return anything, modify s in-place instead.
+    """
+    s.reverse()
 
 
