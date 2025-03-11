@@ -1,4 +1,5 @@
 import heapq
+import math
 from collections import defaultdict, Counter
 
 
@@ -245,3 +246,27 @@ def reverseString(s: list[str]):
     s.reverse()
 
 
+
+
+def minEatingSpeed(piles: list[int], h: int):
+    """
+    :type piles: List[int]
+    :type h: int
+    :rtype: int
+    """
+    pileCount = len(piles)
+    s = sum(piles)
+    left = math.ceil(s / h)
+    right = max(piles) if h == pileCount else int((s - pileCount) / (h - pileCount) + 1)
+    while left <= right:
+        mid = (left + right) // 2
+        hours = 0
+        for bananas in piles:
+            hours += (bananas // mid) + 1 if bananas % mid else bananas // mid
+        if hours > h:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return left
+
+print(minEatingSpeed([3,6,7,11],8))
