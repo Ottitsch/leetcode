@@ -268,5 +268,3 @@ def minEatingSpeed(piles: list[int], h: int):
         else:
             right = mid - 1
     return left
-
-print(minEatingSpeed([3,6,7,11],8))
