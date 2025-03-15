@@ -288,3 +288,26 @@ def guessNumber(self, n: int) -> int:
 def plusOne(self, digits: List[int]) -> List[int]:
         m = int(''.join(str(x) for x in digits))+1
         return [int(x) for x in str(m)]
+
+
+import base64
+
+def encode(strs: list[str]) -> str:
+    data = ""
+    for word in strs:
+        data += word + "#"
+    
+    return base64.b64encode(bytes(data,'utf-8'))
+
+
+def decode(s: str) -> list[str]:
+    data = (base64.b64decode(s)).decode('utf-8')
+    strs = []
+    word = ""
+    for char in data:
+        if(char!="#"):
+            word+=str(char)
+        else:
+            strs.append(word)
+            word=""
+    return strs
