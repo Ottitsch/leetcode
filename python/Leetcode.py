@@ -285,7 +285,7 @@ def guessNumber(self, n: int) -> int:
     return -1
     
 
-def plusOne(self, digits: List[int]) -> List[int]:
+def plusOne(self, digits: list[int]) -> list[int]:
         m = int(''.join(str(x) for x in digits))+1
         return [int(x) for x in str(m)]
 
@@ -311,3 +311,31 @@ def decode(s: str) -> list[str]:
             strs.append(word)
             word=""
     return strs
+
+def shipWithinDays(weights: list[int], days: int) -> int:
+    left, right = max(weights), sum(weights)
+
+    while left < right:
+        mid = (left + right) // 2
+        if canTransferInDays(mid, weights, days):
+            right = mid  # Try a smaller capacity
+        else:
+            left = mid + 1  # Increase capacity
+
+    return left
+
+
+def canTransferInDays (weightload, weights: list[int], days):
+    current_weight = 0
+    required_days = 1  # At least one day is needed
+        
+    for weight in weights:
+        if current_weight + weight > weightload:
+            required_days += 1
+            current_weight = 0  # Start a new day
+        current_weight += weight 
+        if required_days > days:
+            return False
+    return True
+        
+print(shipWithinDays([3,2,4],3))
