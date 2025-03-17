@@ -337,5 +337,10 @@ def canTransferInDays (weightload, weights: list[int], days):
         if required_days > days:
             return False
     return True
-        
-print(shipWithinDays([3,2,4],3))
+
+def searchInsert(self, nums: list[int], target: int) -> int:
+    if target in nums:
+        return nums.index(target)
+    else:
+        nums.append(target)
+        return sorted(nums).index(target)
