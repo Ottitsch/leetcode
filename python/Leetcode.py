@@ -344,3 +344,6 @@ def searchInsert(self, nums: list[int], target: int) -> int:
     else:
         nums.append(target)
         return sorted(nums).index(target)
+
+#TODO:
+#find minimum in sorted array
