@@ -270,7 +270,9 @@ def minEatingSpeed(piles: list[int], h: int):
     return left
 
 
-# def guess(num: int) -> int:
+def guess(num: int) -> int:
+    pass
+
 def guessNumber(self, n: int) -> int:
     left = 1
     right = n
