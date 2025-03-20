@@ -347,5 +347,18 @@ def searchInsert(self, nums: list[int], target: int) -> int:
         nums.append(target)
         return sorted(nums).index(target)
 
+def findMin(nums):
+    left, right = 0, len(nums) - 1
+
+    while left < right:
+        mid = (left + right) // 2
+        
+        # If mid element is greater than rightmost element, min must be to the right
+        if nums[mid] > nums[right]:  
+            left = mid + 1  # Search in the right half
+        else:
+            right = mid  # Search in the left half, including mid
+
+    return nums[left]  # After loop ends, left == right, pointing to the minimum
+
 #TODO:
-#find minimum in sorted array
