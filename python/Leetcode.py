@@ -376,5 +376,18 @@ def checkOverlap(inputlist: list):
 
     return True
 
-print(checkOverlap([[3,4],[5,6],[7,8]]))
-print(checkOverlap([[3,5],[4,6]]))
+#alternate logic
+def checkOverlap(inputlist: list):
+    # Sort intervals by start time
+    inputlist.sort()
+
+    for i in range(len(inputlist) - 1):
+        # Get current and next interval
+        current_start, current_end = inputlist[i]
+        next_start, next_end = inputlist[i + 1]
+
+        # If current interval's end overlaps with the next interval's start
+        if current_end > next_start:
+            return False
+
+    return True
