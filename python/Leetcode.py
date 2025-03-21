@@ -361,4 +361,20 @@ def findMin(nums):
 
     return nums[left]  # After loop ends, left == right, pointing to the minimum
 
-#TODO:
+def checkOverlap(inputlist: list):
+    small = float('inf')
+    big = float('-inf')
+
+    while inputlist:
+        temp1, temp2 = inputlist.pop()
+
+        if small < temp1 < big or small < temp2 < big:
+            return False
+
+        small = min(small, temp1)
+        big = max(big, temp2)
+
+    return True
+
+print(checkOverlap([[3,4],[5,6],[7,8]]))
+print(checkOverlap([[3,5],[4,6]]))
