@@ -20,3 +20,12 @@ def twoSum(nums: list[int], target: int) -> list[int]:
         value = target-nums[i]
         if value in hM and hM[value]!=i:
             return [hM.get(target-nums[i]),i]
+
+def longestCommonPrefix(strs: list[str]) -> str:
+    res = ""
+    for char in zip(*strs):
+        if len(set(char)) == 1:
+            res+= char[0]
+        else:
+            return res
+    return res
