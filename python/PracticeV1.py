@@ -1,3 +1,5 @@
+from collections import Counter
+
 def getConcatenation(self, nums: list[int]) -> list[int]:
     return  nums + nums
 
@@ -9,4 +11,7 @@ def containsDuplicate(nums: list[int]) -> bool:
         mySet.add(num)
     return False
 
-print(containsDuplicate([1,2,3,1]))
+def isAnagram(s: str, t: str) -> bool:
+    return Counter(s) == Counter(t)
+
+print(isAnagram("he2y","yeh2"))
