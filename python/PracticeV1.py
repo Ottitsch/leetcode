@@ -37,3 +37,25 @@ def removeElement(nums: list[int], val: int) -> int:
             nums[index] = nums[i]
             index += 1
     return index
+
+#HASHMAP SOLUTION:
+def majorityElement(nums: list[int]) -> int:
+    hM = {num: i for i, num in enumerate(nums)}
+    largest_key = max(hM, key=lambda k: hM[k])
+    return largest_key
+
+#algorithmic solution:
+def majorityElement(nums: list[int]) -> int:
+    counter = [nums[0],0]
+    for num in nums:
+        if(num==counter[0]):
+            counter[1]+=1
+        else:
+            counter[1]-=1
+        if(counter[1]<0):
+            counter = [num,1]
+        if(counter[1]>=len(nums)/2):
+            break
+    return counter[0]
+
+print(majorityElement([2,2,1,1,1,2,2]))
