@@ -1,4 +1,5 @@
-from collections import Counter
+from collections import Counter, defaultdict
+
 
 def getConcatenation(self, nums: list[int]) -> list[int]:
     return nums + nums
@@ -58,4 +59,23 @@ def majorityElement(nums: list[int]) -> int:
             break
     return counter[0]
 
-print(majorityElement([2,2,1,1,1,2,2]))
+def groupAnagrams(strs: list[str]) -> list[list[str]]:
+    anagram_map = defaultdict(list)
+    for word in strs:
+        sorted_word = ''.join(sorted(word))
+        anagram_map[sorted_word].append(word)
+    return list(anagram_map.values())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
