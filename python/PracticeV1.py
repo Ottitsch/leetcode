@@ -66,7 +66,12 @@ def groupAnagrams(strs: list[str]) -> list[list[str]]:
         anagram_map[sorted_word].append(word)
     return list(anagram_map.values())
 
-
+def reverseString(s: list[str]) -> None:
+    left, right = 0, len(s) - 1
+    while left < right:
+        s[left], s[right] = s[right], s[left]
+        left += 1
+        right -= 1
 
 
 
