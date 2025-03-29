@@ -99,6 +99,24 @@ def sortArray(self, nums: list[int]) -> list[int]:
     mergesort(nums)
     return nums
 
+def calPoints(operations: list[str]) -> int:
+    resultStack = []
+
+    for op in operations:
+        if op == "C":
+            if resultStack:
+                resultStack.pop()
+        elif op == "D":
+            if resultStack:
+                resultStack.append(2 * resultStack[-1])
+        elif op == "+":
+            if len(resultStack) >= 2:
+                resultStack.append(resultStack[-1] + resultStack[-2])
+        else:
+            resultStack.append(int(op))  # Assume it's a valid integer string
+
+    return sum(resultStack)
+
 
 
 
