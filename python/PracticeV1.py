@@ -127,6 +127,101 @@ def isValid(s: str) -> bool:
             return False
     return len(stack) == 0
 
+def carFleet(target: int, position: list[int], speed: list[int]) -> int:
+    carFleetMap = sorted(zip(position,speed),reverse=True)
+    head = None
+    counter = 0
+
+    def checkIfCatchup(headPos, headSpeed, carPos, carSpeed, target) -> bool:
+        # If car is slower or same speed, it can't catch up
+        if carSpeed <= headSpeed:
+            return False
+        time_to_target = (target - headPos) / headSpeed
+        car_distance = carPos + (carSpeed * time_to_target)
+        return car_distance >= target
+
+    for pos, speed in carFleetMap:
+        if head is None:
+            head = pos, speed
+            counter += 1
+            continue
+        headPos, headSpeed = head
+        if not checkIfCatchup(headPos, headSpeed, pos, speed, target):
+            head = pos, speed
+            counter += 1
+
+    return counter
+
+print(carFleet(12, [10,8,0,5,3], [2,4,1,1,3]))
+"""
+
+iterate from n to 0
+    if we encounter a car faster than the head check if it will catch up
+    within target otherwise increase counter
+    # and make it into new head? -> yes
+    
+    check each time we encounter a number smaller than the head
+    and make it into the new head
+    increase the counter
+(start without a head so first car we encounter becomes head)
+
+def checkIfCatchup (head_pos, head_speed, car_pos, car_speed, target) -> int:
+    headFinalPos = head_pos + (head_speed*target)
+    carFinalPos = car_pos + (car_speed*target)
+    return headFinalPos <= carFinalPos
+
+
+return counter
+
+---------------------------------
+# what i forgot:
+# this problem is about target as well, so we need to make a function 
+# that checks if the faster car in the further back position catches
+# up to the slower car in the front within target time
+
+
+Make it into a Hashmap and iterate over the hashmap
+in python its a dictionary where we initially go through and store the values
+
+
+
+
+
+
+Example 3:
+0   -4
+1
+2   -2
+3
+4   -1
+5
+
+Example 1:
+-----------
+0   -1
+-----------
+1
+2
+------------
+3   -3
+4
+5   -1
+------------
+6
+7
+-------------
+8   -4
+9
+10  -2
+--------------
+
+
+
+
+
+
+"""
+
 
 
 
