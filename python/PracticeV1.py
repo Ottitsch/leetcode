@@ -176,3 +176,68 @@ def search(nums: list[int], target: int) -> int:
         else:
             right = mid-1
     return -1
+
+
+def strongPasswordChecker(password: str) -> int:
+    n = len(password)
+    missing_lower = int(not any(c.islower() for c in password))
+    missing_upper = int(not any(c.isupper() for c in password))
+    missing_digit = int(not any(c.isdigit() for c in password))
+    missing_types = missing_lower + missing_upper + missing_digit
+
+    # Count repeating sequences
+    i = 2
+    repeats = []
+    while i < n:
+        if password[i] == password[i - 1] == password[i - 2]:
+            j = i - 2
+            while i < n and password[i] == password[j]:
+                i += 1
+            repeats.append(i - j)
+        else:
+            i += 1
+
+    if n < 6:
+        return max(6 - n, missing_types)
+
+    elif n <= 20:
+        replace = sum(length // 3 for length in repeats)
+        return max(replace, missing_types)
+
+    else:
+        delete = n - 20
+        over = repeats[:]
+        # Step 1: Apply deletions to reduce replacements, prioritize sequences by mod 3
+        buckets = [[], [], []]
+        for r in over:
+            buckets[r % 3].append(r)
+
+        for mod in range(3):
+            for i in range(len(buckets[mod])):
+                if delete <= 0:
+                    break
+                r = buckets[mod][i]
+                need = mod + 1
+                reduce = min(delete, need)
+                buckets[mod][i] -= reduce
+                delete -= reduce
+
+        # Step 2: Apply remaining deletions to any leftover repeating groups
+        for mod in range(3):
+            for i in range(len(buckets[mod])):
+                if delete <= 0:
+                    break
+                r = buckets[mod][i]
+                if r >= 3:
+                    reduce = min(delete, r - 2)
+                    buckets[mod][i] -= reduce
+                    delete -= reduce
+
+        # Step 3: Compute final replacements after all deletions
+        replace = 0
+        for mod in range(3):
+            for r in buckets[mod]:
+                if r >= 3:
+                    replace += r // 3
+
+        return (n - 20) + max(replace, missing_types)
