@@ -167,11 +167,8 @@ def carFleet(target: int, position: list[int], speed: list[int]) -> int:
 def search(nums: list[int], target: int) -> int:
     left = 0
     right = len(nums)
-    count = 10
-    while left < right and count > 0:
-        count-=1
+    while left < right:
         mid = (right + left) // 2
-        print("left: ", left, "mid: ", mid, "right: ", right)
         if nums[mid] == target:
             return mid
         if nums[mid] < target:
