@@ -241,3 +241,15 @@ def strongPasswordChecker(password: str) -> int:
                     replace += r // 3
 
         return (n - 20) + max(replace, missing_types)
+
+def searchInsert(nums: list[int], target: int) -> int:
+    left, right = 0, len(nums)
+    while left < right:
+        mid = (left + right) // 2
+        if target > nums[mid]:
+            left = mid + 1
+        else:
+            right = mid
+    return left
+
+print(searchInsert([1,3,5,6],7))
