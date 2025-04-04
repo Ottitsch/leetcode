@@ -252,4 +252,25 @@ def searchInsert(nums: list[int], target: int) -> int:
             right = mid
     return left
 
-print(searchInsert([1,3,5,6],7))
+def guess():
+    pass
+
+def guessNumber(n: int) -> int:
+    left=1
+    right=n
+    while left<=right:
+        mid=(right+left)//2
+        if(guess(mid)==0):
+            return mid
+        if(guess(mid)==1):
+            left=mid+1
+        if(guess(mid)==-1):
+            right=mid-1
+    return -1
+
+
+
+
+
+
+
