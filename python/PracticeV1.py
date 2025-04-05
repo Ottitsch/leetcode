@@ -1,3 +1,4 @@
+import math
 from collections import Counter, defaultdict
 
 
@@ -268,9 +269,21 @@ def guessNumber(n: int) -> int:
             right=mid-1
     return -1
 
+def minEatingSpeed(piles: list[int], h: int) -> int:
+    left, right = 0, max(piles)
+    while left<=right:
+        mid=(right+left)//2
+        if canEatAll(mid, piles, h):
+            right=mid-1
+        else:
+            left=mid+1
+    return left
 
 
-
-
+def canEatAll(speed,piles,h):
+    hours = 0
+    for pile in piles:
+        hours += math.ceil(pile / speed)
+    return hours <= h
 
 
