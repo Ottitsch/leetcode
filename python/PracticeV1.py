@@ -287,3 +287,20 @@ def canEatAll(speed,piles,h):
     return hours <= h
 
 
+def mySqrt(x: int) -> int:
+    if x==0:
+        return x
+    left,right=1,x
+    while left<=right:
+        mid=(right+left)//2
+        print(left,right,mid)
+        if(mid==x/mid):
+            return mid
+        if mid>x/mid:
+            right=mid-1
+        else:
+            left=mid+1
+    return right
+
+print(mySqrt(8))
+
