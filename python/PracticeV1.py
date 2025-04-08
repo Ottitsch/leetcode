@@ -312,5 +312,20 @@ def findMin(nums: list[int]) -> int:
             left=mid+1
     return nums[left]
 
-print(findMin([5,6,7,8,9,1,2,3,4]))
+
+def nextGreatestLetter(letters: list[str], target: str) -> str:
+    if target >= letters[-1] or target < letters[0]:
+        return letters[0]
+
+    left,right=0,len(letters)-1
+    while left<=right:
+        mid=(right+left)//2
+        if(letters[mid]<=target):
+            left=mid+1
+        if(letters[mid]>target):
+            right=mid-1
+    return letters[left]
+
+
+print(ord('b'))
 
