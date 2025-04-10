@@ -346,3 +346,12 @@ def nextGreatestLetter(letters: list[str], target: str) -> str:
 
 print(ord('b'))
 
+def targetIndices(self, nums: List[int], target: int) -> List[int]:
+    startIndex = 0
+    repetition = 0
+    for i in range(len(nums)):
+        if nums[i] < target:
+            startIndex+=1
+        elif nums[i] == target:
+            repetition +=1
+    return [i for i in range(startIndex,startIndex+repetition)]
