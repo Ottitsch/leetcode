@@ -346,7 +346,7 @@ def nextGreatestLetter(letters: list[str], target: str) -> str:
 
 print(ord('b'))
 
-def targetIndices(self, nums: List[int], target: int) -> List[int]:
+def targetIndices(self, nums: list[int], target: int) -> list[int]:
     startIndex = 0
     repetition = 0
     for i in range(len(nums)):
@@ -355,3 +355,41 @@ def targetIndices(self, nums: List[int], target: int) -> List[int]:
         elif nums[i] == target:
             repetition +=1
     return [i for i in range(startIndex,startIndex+repetition)]
+
+
+def missingNumber(nums: list[int]) -> int:
+    n = len(nums)
+    missing = set(range(n+1)) - set(nums)
+    return missing.pop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
