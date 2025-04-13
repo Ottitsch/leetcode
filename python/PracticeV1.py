@@ -343,9 +343,6 @@ def nextGreatestLetter(letters: list[str], target: str) -> str:
             right=mid-1
     return letters[left]
 
-
-print(ord('b'))
-
 def targetIndices(self, nums: list[int], target: int) -> list[int]:
     startIndex = 0
     repetition = 0
@@ -362,13 +359,14 @@ def missingNumber(nums: list[int]) -> int:
     missing = set(range(n+1)) - set(nums)
     return missing.pop()
 
-def singleNumber(self, nums: List[int]) -> int:
+def singleNumber(self, nums: list[int]) -> int:
     result = 0
     for num in nums:
         result ^= num
     return result
 
-
+def hammingWeight(self, n: int) -> int:
+    return bin(n)[2:].count('1')
 
 
 
