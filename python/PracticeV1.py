@@ -368,7 +368,25 @@ def singleNumber(self, nums: list[int]) -> int:
 def hammingWeight(self, n: int) -> int:
     return bin(n)[2:].count('1')
 
+def lemonadeChange(bills):
+    fiveCollected = 0
+    tenCollected = 0
 
+    for bill in bills:
+        if bill == 5:
+            fiveCollected += 1
+        elif bill == 10:
+            tenCollected += 1
+            fiveCollected -= 1
+        elif bill == 20:
+            if tenCollected > 0:
+                tenCollected -= 1
+                fiveCollected -= 1
+            else:
+                fiveCollected -= 3
+        if fiveCollected < 0:
+            return False
+    return True
 
 
 
