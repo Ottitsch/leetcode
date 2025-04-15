@@ -402,8 +402,10 @@ def jump(self, nums: list[int]) -> int:
 
     return jumps
 
+def countBits(n: int) -> list[int]:
+    return [sum(map(int, bin(i)[2:])) for i in range(n+1)]
 
-
+print(countBits(2))
 
 
 
