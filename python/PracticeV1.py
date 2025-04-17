@@ -405,7 +405,7 @@ def jump(self, nums: list[int]) -> int:
 def countBits(n: int) -> list[int]:
     return [sum(map(int, bin(i)[2:])) for i in range(n+1)]
 
-def addBinary(self, a: str, b: str) -> str:
+def addBinary(a: str, b: str) -> str:
     x=int(a,2)
     y=int(b,2)
     return bin(x+y)[2:]
