@@ -416,8 +416,10 @@ def reverseBits(self, n: int) -> int:
     rev = n[::-1]
     return int(rev, 2)
 
-
-
+def missingNumber(self, nums: List[int]) -> int:
+    n=len(nums)
+    eSum = (n+1)*(n)/2
+    return int(eSum-sum(nums))
 
 
 
