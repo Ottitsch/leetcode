@@ -416,7 +416,7 @@ def reverseBits(self, n: int) -> int:
     rev = n[::-1]
     return int(rev, 2)
 
-def missingNumber(self, nums: List[int]) -> int:
+def missingNumber(self, nums: list[int]) -> int:
     n=len(nums)
     eSum = (n+1)*(n)/2
     return int(eSum-sum(nums))
@@ -434,7 +434,13 @@ def reverse(self, x: int) -> int:
         
     return res
 
-
+def containsNearbyDuplicate(nums: list[int], k: int) -> bool:
+    index_dict = {}
+    for i, n in enumerate(nums):
+        if n in index_dict and i - index_dict[n] <= k:
+            return True
+        index_dict[n]=i
+    return False
 
 
 
