@@ -9,3 +9,6 @@ def containsDuplicate(self, nums: List[int]) -> bool:
         else:
             mySet.append(num)
     return False
+
+def isAnagram(self, s: str, t: str) -> bool:
+    return sorted(s) == sorted(t)
