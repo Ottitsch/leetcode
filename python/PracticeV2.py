@@ -1,7 +1,7 @@
-def getConcatenation(self, nums: List[int]) -> List[int]:
+def getConcatenation(nums: list[int]) -> list[int]:
     return nums + nums
 
-def containsDuplicate(self, nums: List[int]) -> bool:
+def containsDuplicate(nums: list[int]) -> bool:
     mySet = []
     for num in nums:
         if(mySet.__contains__(num)):
@@ -10,22 +10,43 @@ def containsDuplicate(self, nums: List[int]) -> bool:
             mySet.append(num)
     return False
 
-def isAnagram(self, s: str, t: str) -> bool:
+def isAnagram(s: str, t: str) -> bool:
     return sorted(s) == sorted(t)
 
-def twoSum(self, nums: List[int], target: int) -> List[int]:
+def twoSum(nums: list[int], target: int) -> list[int]:
     hM = {num: i for i, num in enumerate(nums)}
     for i in range(len(nums)):
         value = target-nums[i]
         if value in hM and hM[value]!=i:
             return [hM.get(target-nums[i]),i]
 
-def longestCommonPrefix(self, strs):
+def longestCommonPrefix(strs):
     prefix = strs[0]
     for word in strs[1:]:
         while not word.startswith(prefix):
             prefix = prefix[:-1]
             if not prefix:
                 return ""
-
     return prefix
+
+# TODO: Rewrite this with a stack instead of rekursive function
+def minRemoveToMakeValid(s: str) -> str:
+    result=removeRekursive(s,"(",")")
+    result=removeRekursive(result[::-1],")","(")
+    return result[::-1]
+
+def removeRekursive(s: str,c: str,b: str) -> str:
+    result=""
+    count=0
+    for char in s:
+        if char==c:
+           count+=1
+        if char==b:
+            if count==0:
+                continue
+            count-=1
+        result+=char
+    return result
+
+
+print(minRemoveToMakeValid("test(()"))
