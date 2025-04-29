@@ -29,26 +29,19 @@ def longestCommonPrefix(strs):
                 return ""
     return prefix
 
-# TODO: Rewrite this with a stack instead of rekursive function
 def minRemoveToMakeValid(s: str) -> str:
-    result=removeRekursive(s,"(",")")
-    result=removeRekursive(result[::-1],")","(")
-    return result[::-1]
+    stack = []
+    s = list(s)
+    for i in range(len(s)):
+        if s[i] == "(": stack.append(i)
+        elif s[i] == ")":
+            if stack: stack.pop()
+            else: s[i] = ""
+    for i in stack:
+        s[i] = ""
+    return "".join(s)
 
-def removeRekursive(s: str,c: str,b: str) -> str:
-    result=""
-    count=0
-    for char in s:
-        if char==c:
-           count+=1
-        if char==b:
-            if count==0:
-                continue
-            count-=1
-        result+=char
-    return result
-
-def reverseString(s: List[str]) -> None:
+def reverseString(s: list[str]) -> None:
     left, right = 0, len(s) - 1
     while left < right:
         s[left], s[right] = s[right], s[left]
