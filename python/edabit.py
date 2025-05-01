@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 def count_true(lst):
     count=0
     for var in lst:
@@ -44,4 +47,7 @@ def encode_morse(message):
         response+=char_to_dots[char.capitalize()] + " "
     return response[:-1]
 
-print(encode_morse("hello!"))
+def has_friday_13(month, year):
+    return datetime(year,month,13).strftime("%A")=='Friday'
+
+print(has_friday_13(4,2020))
