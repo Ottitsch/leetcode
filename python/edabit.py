@@ -20,4 +20,7 @@ def top_note(student):
         "top_note": max(student["notes"])
     }
 
-print(top_note({ "name": "John", "notes": [3, 5, 4] }))
+def area_of_country(name, area):
+    return name+ " is "+str(round(area/148940000*100,2)) + "% of the total world's landmass"
+
+print(area_of_country("Russia",1648195))
