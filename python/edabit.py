@@ -89,4 +89,10 @@ def shift_sentence(txt):
         return response[:-1]
     return response
 
-print(shift_sentence("freate c aunction "))
+def majority_vote(lst):
+    for i in set(lst):
+        if lst.count(i)>len(lst)//2:
+            return i
+    return None
+
+print(majority_vote(["a","b","a","c","a"]))
