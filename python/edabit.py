@@ -10,3 +10,8 @@ def int_to_str(num):
 
 def str_to_int(num):
     return str(num)
+
+def total_overs(balls):
+	return float(int(balls/6)) + balls%6/10
+
+print(total_overs(945))
