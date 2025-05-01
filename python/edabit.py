@@ -23,4 +23,7 @@ def top_note(student):
 def area_of_country(name, area):
     return name+ " is "+str(round(area/148940000*100,2)) + "% of the total world's landmass"
 
-print(area_of_country("Russia",1648195))
+def format_date(date):
+    return str(date[6:] + date[3:5] + date[0:2])
+
+print(format_date("11/12/2019"))
