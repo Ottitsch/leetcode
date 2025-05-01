@@ -95,4 +95,7 @@ def majority_vote(lst):
             return i
     return None
 
-print(majority_vote(["a","b","a","c","a"]))
+def censor_string(txt, lst, char):
+    for word in lst:
+        txt = txt.replace(word, char*len(word))
+    return txt
