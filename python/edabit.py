@@ -99,3 +99,16 @@ def censor_string(txt, lst, char):
     for word in lst:
         txt = txt.replace(word, char*len(word))
     return txt
+
+def freed_prisoners(prison):
+    if prison[0]==0:
+        return 0
+    i = 0
+    count=1
+    for cell in prison:
+        if cell == i%2:
+            count+=1
+            i+=1
+    return count
+
+print(freed_prisoners([1, 1, 0, 0, 0, 1, 0]))
