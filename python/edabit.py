@@ -50,4 +50,20 @@ def encode_morse(message):
 def has_friday_13(month, year):
     return datetime(year,month,13).strftime("%A")=='Friday'
 
-print(has_friday_13(4,2020))
+def encrypt(word):
+    response=""
+    vowel_to_number = {
+        'a':'0',
+        'e':'1',
+        'i':'2',
+        'o':'2',
+        'u':'3',
+    }
+    for char in reversed(word):
+        if char in vowel_to_number:
+            response+=vowel_to_number[char]
+        else:
+            response+=char
+    return response+"aca"
+
+print(encrypt("apple"))
