@@ -76,4 +76,17 @@ def climb(stamina, obstacles):
         count += 1
     return count
 
-print(climb(5, [5, 4.2, 3, 3.5, 6, 4, 6, 8, 1]))
+def shift_sentence(txt):
+    response=""
+    word_list = txt.split()
+    if len(word_list) == 1:
+        return txt
+    char=word_list[-1][0]
+    for word in word_list:
+        response+=char+word[1:]+" "
+        char=word[0]
+    if response[-1]==" ":
+        return response[:-1]
+    return response
+
+print(shift_sentence("freate c aunction "))
