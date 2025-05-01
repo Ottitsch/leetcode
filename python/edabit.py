@@ -57,7 +57,7 @@ def encrypt(word):
         'e':'1',
         'i':'2',
         'o':'2',
-        'u':'3',
+        'u':'3'
     }
     for char in reversed(word):
         if char in vowel_to_number:
