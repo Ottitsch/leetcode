@@ -4,3 +4,9 @@ def count_true(lst):
         if var is True:
             count+=1
     return count
+
+def int_to_str(num):
+    return int(num)
+
+def str_to_int(num):
+    return str(num)
