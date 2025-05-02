@@ -8,3 +8,15 @@ def sum13(nums):
         count+=num
     return count
 
+def sum67(nums):
+    count=0
+    skip=False
+    for num in nums:
+        if num==6:
+            skip=True
+        if num==7 and skip is True:
+            skip=False
+            continue
+        if skip is False:
+            count+=num
+    return count
