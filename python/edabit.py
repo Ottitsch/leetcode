@@ -130,4 +130,10 @@ def interview(lst, tot):
 def snakefill(n):
     return math.floor(math.log2(n * n))
 
-print(snakefill(6))
+def tidy_link(url, name, *hover_text):
+    if hover_text:
+        return '['+name+']('+url+' "'+hover_text+'")'
+    else:
+        return '['+name+']('+url+')'
+
+print(tidy_link("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "Click Me!"))
