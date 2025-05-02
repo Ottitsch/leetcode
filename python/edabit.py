@@ -127,4 +127,7 @@ def interview(lst, tot):
             return "disqualified"
     return "qualified" if tot <= totalMax else "disqualified"
 
-print(interview([5, 5, 10, 10, 15, 15, 20], 120))
+def snakefill(n):
+    return math.floor(math.log2(n * n))
+
+print(snakefill(6))
