@@ -111,4 +111,20 @@ def freed_prisoners(prison):
             i+=1
     return count
 
-print(freed_prisoners([1, 1, 0, 0, 0, 1, 0]))
+def interview(lst, tot):
+    maxTime = {
+        "very easy":5,
+        "easy":10,
+        "medium":15,
+        "hard":20
+    }
+    totalMax = 120
+    format = ["very easy", "very easy", "easy", "easy", "medium", "medium", "hard", "hard"]
+    if(len(lst)<len(format)):
+        return "disqualified"
+    for index,element in enumerate(lst):
+        if element>maxTime[format[index]]:
+            return "disqualified"
+    return "qualified" if tot <= totalMax else "disqualified"
+
+print(interview([5, 5, 10, 10, 15, 15, 20], 120))
