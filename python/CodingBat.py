@@ -20,3 +20,16 @@ def sum67(nums):
         if skip is False:
             count+=num
     return count
+
+def has22(nums):
+    prev=0
+    for num in nums:
+        if num==2 and prev==2:
+            return True
+        if num==2:
+            prev=2
+        else:
+            prev=0
+    return False
+
+
