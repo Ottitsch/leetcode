@@ -1,6 +1,7 @@
 import heapq
 import math
 from collections import defaultdict, Counter
+from typing import Optional
 
 
 def fizzBuzz(self, n):
@@ -391,3 +392,51 @@ def checkOverlap(inputlist: list):
             return False
 
     return True
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:
+    # First pass: calculate the total length
+    length = 0
+    current = head
+    while current:
+        length += 1
+        current = current.next
+
+    # Edge case: remove the head
+    if n == length:
+        return head.next
+
+    # Second pass: stop at the node before the one to delete
+    current = head
+    for _ in range(length - n - 1):
+        current = current.next
+
+    # Remove the nth node from end
+    current.next = current.next.next
+
+    return head
+
+head = ListNode(1,
+                ListNode(2,
+                         ListNode(3,
+                                  ListNode(4,
+                                           ListNode(5)))))
+head = removeNthFromEnd(head,2)
+while head:
+    print(head.val)
+    head=head.next
+
+
+
+
+
+
+
+
+
+
