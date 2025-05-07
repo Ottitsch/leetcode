@@ -27,8 +27,9 @@ class InPlaceAssignment:
         t[2] += [50, 60]
 
 class SimpleType:
-    a = (1)
-    print(type(a))
+    def run(self):
+        a = (1)
+        print(type(a))
 
 if __name__ == "__main__":
     SmallNumbers().run()
