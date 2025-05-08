@@ -31,5 +31,14 @@ class SimpleType:
         a = (1)
         print(type(a))
 
+class DefaultArguments:
+    def run(self):
+        print(self.myAppend(7), end =" ")
+        print(self.myAppend(9))
+
+    def myAppend(element, arr = []):
+        arr.append(element)
+        return arr
+
 if __name__ == "__main__":
     SmallNumbers().run()
