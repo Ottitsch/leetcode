@@ -40,5 +40,15 @@ class DefaultArguments:
         arr.append(element)
         return arr
 
+class DisMe:
+    import dis
+    def myFunction(self, x):
+        y = x + 1
+        return y * x
+
+    def run(self):
+        DisMe.dis.dis(self.myFunction)
+        print(self.myFunction(5))
+
 if __name__ == "__main__":
-    SmallNumbers().run()
+    DisMe().run()
