@@ -52,8 +52,43 @@ def isPalindrome(self, s: str) -> bool:
         s = [c.lower() for c in s if c.isalnum()]
         return all (s[i] == s[~i] for i in range(len(s)//2))
 
-def singleNumber(self, nums: List[int]) -> int:
+def singleNumber(self, nums: list[int]) -> int:
     result = 0
     for num in nums:
         result ^= num
     return result
+
+def maxProfit(prices: list[int]) -> int:
+    min = prices[0]
+    maxProfit = 0
+    
+    for num in prices:
+        if(min>num):
+            min=num
+        maxProfit = max(maxProfit,num-min)
+    return maxProfit
+
+
+print(maxProfit([7,6,4,3,1]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
