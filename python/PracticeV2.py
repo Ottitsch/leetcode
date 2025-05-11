@@ -84,12 +84,25 @@ def lengthOfLongestSubstring(s: str) -> int:
         longest = max(longest,current)
     return longest
 
-print(lengthOfLongestSubstring("abcabcbb"))
-print(lengthOfLongestSubstring("bbbbb"))
-print(lengthOfLongestSubstring("pwwkew"))
+def characterReplacement(s: str, k: int) -> int:
+    maxLen = 0
+    maxCount = 0
+    count = [0] * 26
+    left = 0
 
+    for right in range(len(s)):
+        index = ord(s[right]) - ord('A')
+        count[index]+=1
+        maxCount = max(maxCount, count[index])
 
+        if(right - left+1) -maxCount > k:
+            count[ord(s[left])-ord('A')]-=1
+            left+=1
+        maxLen=max(maxLen,right-left+1)
+    return maxLen
 
+print(characterReplacement("ABAB",2))
+print(characterReplacement("AABABBA",1))
 
 
 
