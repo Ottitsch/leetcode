@@ -68,17 +68,25 @@ def maxProfit(prices: list[int]) -> int:
         maxProfit = max(maxProfit,num-min)
     return maxProfit
 
+def lengthOfLongestSubstring(s: str) -> int:
+    mapper = {}
+    longest = 0
+    current = 0
 
-print(maxProfit([7,6,4,3,1]))
+    for char in s:
+        if char not in mapper:
+            mapper[char]=1
+            current+=1
+        else:
+            mapper={}
+            mapper[char]=1
+            current=1
+        longest = max(longest,current)
+    return longest
 
-
-
-
-
-
-
-
-
+print(lengthOfLongestSubstring("abcabcbb"))
+print(lengthOfLongestSubstring("bbbbb"))
+print(lengthOfLongestSubstring("pwwkew"))
 
 
 
