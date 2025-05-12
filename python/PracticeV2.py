@@ -112,10 +112,21 @@ def checkInConclusion(s1: str, s2: str) -> bool:
         count2[s2[i]]+=1
     return count1==count2
 
-print(checkInConclusion("ab","eidbaooo"))
-print(checkInConclusion("ab","eidboaoo"))
+def search(nums: list[int], target: int) -> int:
+    left=0
+    right=len(nums)
+    while left<right:
+        mid=(left+right)//2
+        if target==nums[mid]:
+            return mid
+        if nums[left] < target:
+            left = mid
+        else:
+            right = mid
+    return -1
 
-
+print(search([-1,0,3,5,9,12],9))
+print(search([-1,0,3,5,9,12],2))
 
 
 
