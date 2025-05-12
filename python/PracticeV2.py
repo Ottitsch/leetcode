@@ -101,13 +101,19 @@ def characterReplacement(s: str, k: int) -> int:
         maxLen=max(maxLen,right-left+1)
     return maxLen
 
-print(characterReplacement("ABAB",2))
-print(characterReplacement("AABABBA",1))
+from collections import Counter
 
+def checkInConclusion(s1: str, s2: str) -> bool:
+    count1, count2 = Counter(s1),Counter(s2[:len(s1)])
+    for i in range (len(s1),len(s2)):
+        if count1 == count2:
+            return True
+        count2[s2[i-len(s1)]]-=1
+        count2[s2[i]]+=1
+    return count1==count2
 
-
-
-
+print(checkInConclusion("ab","eidbaooo"))
+print(checkInConclusion("ab","eidboaoo"))
 
 
 
