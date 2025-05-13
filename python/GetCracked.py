@@ -50,5 +50,11 @@ class DisMe:
         DisMe.dis.dis(self.myFunction)
         print(self.myFunction(5))
 
+class SimpleMath:
+    from math import fma
+
+    def run(self):
+        print(int(self.fma(2, 2, 1_10_0)))
+
 if __name__ == "__main__":
-    DisMe().run()
+    SimpleMath().run()
