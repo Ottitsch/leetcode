@@ -28,7 +28,7 @@ class InPlaceAssignment:
 
 class SimpleType:
     def run(self):
-        a = (1)
+        a=(1)
         print(type(a))
 
 class DefaultArguments:
@@ -56,5 +56,12 @@ class SimpleMath:
     def run(self):
         print(int(self.fma(2, 2, 1_10_0)))
 
+class ZipIt:
+    def run(self):
+        arr1 = [1,2]
+        arr2 = [1,2,3,4]
+        arr3 = list(zip(arr1,arr2))
+        print(len(arr3))
+
 if __name__ == "__main__":
-    SimpleMath().run()
+    ZipIt().run()
