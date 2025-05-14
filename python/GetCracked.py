@@ -63,5 +63,15 @@ class ZipIt:
         arr3 = list(zip(arr1,arr2))
         print(len(arr3))
 
+class WhatAreWeReplacing:
+    from copy import replace
+    from collections import namedtuple
+
+    def run(self):
+        MyTuple = WhatAreWeReplacing.namedtuple("myTuple", ["x", "y"])
+        t1 = MyTuple(1,2)
+        t2 = WhatAreWeReplacing.replace(t1, x = 3)
+        print(t1, t2)
+
 if __name__ == "__main__":
-    ZipIt().run()
+    WhatAreWeReplacing().run()
