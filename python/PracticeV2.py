@@ -125,8 +125,19 @@ def search(nums: list[int], target: int) -> int:
             right = mid
     return -1
 
-print(search([-1,0,3,5,9,12],9))
-print(search([-1,0,3,5,9,12],2))
+def searchInsert(nums: list[int], target: int) -> int:
+    left=0
+    right=len(nums)
+    while left < right:
+        mid=(left+right) // 2
+        if nums[mid] == target:
+            return mid
+        if nums[mid] < target:
+            left=mid+1
+        else:
+            right=mid
+    return right
 
-
-
+print(searchInsert([1,3,5,6],5))
+print(searchInsert([1,3,5,6],2))
+print(searchInsert([1,3,5,6],7))
