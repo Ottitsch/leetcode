@@ -19,3 +19,12 @@ def flick_switch(lst):
     return response
 
 print(flick_switch(['codewars', 'flick', 'test']))
+
+# incomplete
+def dna_to_rna(dna):
+    rna = ""
+    for char in dna:
+        if(char=='T'):
+            rna+='U'
+            continue
+        rna+=char
