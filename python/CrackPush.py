@@ -31,3 +31,14 @@ So when 'a' is modified, 'b' reflects those changes too.
 
 The output will be: [1, 2, 3, 4]
 """
+
+# Set the Record Straight
+print({1, 2, 3} == {3, 2, 1})
+"""
+Sets in Python are unordered collections of unique elements.
+
+{1, 2, 3} and {3, 2, 1} contain the same elements, so they are considered equal.
+
+The output will be: True
+"""
+
