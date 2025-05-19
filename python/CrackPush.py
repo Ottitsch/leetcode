@@ -19,3 +19,15 @@ Then, [::-1] again reverses it back to the original: "Python"
 
 So the final result is just "Python"
 """
+
+# List Illusions
+a = [1, 2, 3]
+b = a
+a.append(4)
+print(b)
+"""
+Both 'a' and 'b' refer to the same list object in memory.
+So when 'a' is modified, 'b' reflects those changes too.
+
+The output will be: [1, 2, 3, 4]
+"""
