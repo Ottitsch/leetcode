@@ -73,5 +73,11 @@ class WhatAreWeReplacing:
         t2 = WhatAreWeReplacing.replace(t1, x = 3)
         print(t1, t2)
 
+class ANumberWalksIntoABase:
+    def run(self):
+        print(0b10 + 0o10 + 0x10)
+
+
+
 if __name__ == "__main__":
-    WhatAreWeReplacing().run()
+    ANumberWalksIntoABase().run()
