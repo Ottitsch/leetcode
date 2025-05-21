@@ -42,3 +42,33 @@ Sets in Python are unordered collections of unique elements.
 The output will be: True
 """
 
+# Plus Minus Sanity
+class Strange:
+    def __init__(self, val):
+        self.val = val
+
+    def __add__(self, other):
+        return self.val * other.val
+
+    def __radd__(self, other):
+        return self.val + other
+
+a = Strange(3)
+b = Strange(2)
+
+print(a + b)
+print(10 + a)
+print(a + 10)
+"""
+a + b → calls a.__add__(b) → 3 * 2 = 6
+10 + a → calls a.__radd__(10) → 3 + 10 = 13
+a + 10 → a.__add__(10) → 10 has no `.val` → AttributeError
+
+So:
+6
+13
+[raises AttributeError]
+"""
+
+
+
