@@ -58,7 +58,7 @@ b = Strange(2)
 
 print(a + b)
 print(10 + a)
-print(a + 10)
+#print(a + 10)
 """
 a + b → calls a.__add__(b) → 3 * 2 = 6
 10 + a → calls a.__radd__(10) → 3 + 10 = 13
@@ -70,5 +70,34 @@ So:
 [raises AttributeError]
 """
 
+# Inheritance in the Deep
+class Organism:
+    def describe(self):
+        return "Basic lifeform"
 
+    class Cell:
+        def function(self):
+            return "Generic cell"
+
+class Animal(Organism):
+    def describe(self):
+        return "I am an animal"
+
+    class Cell(Organism.Cell):
+        def function(self):
+            return "Animal cell with specialized roles"
+
+print(Animal().describe(), Animal.Cell().function())
+"""
+This question mixes inheritance across top-level and nested classes.
+
+- `Animal` inherits from `Organism`.
+- `Animal.Cell` inherits from `Organism.Cell`.
+
+This results in:
+- `Animal().describe()` calling the overridden method in `Animal` → "I am an animal"
+- `Animal.Cell().function()` calling the overridden method in `Animal.Cell` → "Animal cell with specialized roles"
+
+The key concept here is that **nested classes can independently inherit and override**, just like top-level ones.
+"""
 
