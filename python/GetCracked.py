@@ -77,7 +77,18 @@ class ANumberWalksIntoABase:
     def run(self):
         print(0b10 + 0o10 + 0x10)
 
+class A():
+    __num=5
+    def getNum(self):
+        return self.__num
+
+class MyNameIs():
+    def run(self):
+        a = A()
+        a.__num=4
+
+        print(f"{a.getNum()}{len(a.__dict__)}{a.__num}")
 
 
 if __name__ == "__main__":
-    ANumberWalksIntoABase().run()
+    MyNameIs().run()
