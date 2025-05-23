@@ -34,3 +34,7 @@ bin/
 *.log
 *.class
 *.tmp
+
+*~
+*.un~
+
