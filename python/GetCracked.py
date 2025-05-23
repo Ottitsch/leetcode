@@ -90,5 +90,12 @@ class MyNameIs():
         print(f"{a.getNum()}{len(a.__dict__)}{a.__num}")
 
 
+class SoHowBigIsX():
+    import sys
+    def run(self):
+        x = 5
+        print(self.sys.getsizeof(x))
+
+
 if __name__ == "__main__":
-    MyNameIs().run()
+    SoHowBigIsX().run()
