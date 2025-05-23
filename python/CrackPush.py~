@@ -101,22 +101,3 @@ This results in:
 The key concept here is that **nested classes can independently inherit and override**, just like top-level ones.
 """
 
-# Don't Go Global
-"""
-Why is it often faster to assign a frequently used global function (like len) to a local variable?
-Local variable access is faster than global lookups.
-"""
-"""
-In Python, local variable access is significantly faster than accessing global variables. This is because:
--Python stores local variables in a fixed-size array, enabling direct and fast access.
--In contrast, global variables require a dictionary lookup, which is slower.
-
-So if you're using a global function like len many times inside a performance-critical loop, it's faster to do:
-my_len = len
-for item in mylist:
-    if my_len(item) > 5:
-        ...
-
-This optimization can make a noticeable difference in tight loops or high-frequency calls.
-"""
-
