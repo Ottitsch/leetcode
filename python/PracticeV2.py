@@ -138,6 +138,11 @@ def searchInsert(nums: list[int], target: int) -> int:
             right=mid
     return right
 
-print(searchInsert([1,3,5,6],5))
-print(searchInsert([1,3,5,6],2))
-print(searchInsert([1,3,5,6],7))
+def plusOne(self, digits: List[int]) -> List[int]:
+	for i in range(len(digits) - 1, -1, -1):
+		if digits[i] + 1 != 10:
+        	digits[i] += 1
+            return digits
+		digits[i] = 0
+        if i == 0:
+        	return [1] + digits
