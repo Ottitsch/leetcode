@@ -125,8 +125,24 @@ def search(nums: list[int], target: int) -> int:
             right = mid
     return -1
 
-print(search([-1,0,3,5,9,12],9))
-print(search([-1,0,3,5,9,12],2))
+def searchInsert(nums: list[int], target: int) -> int:
+    left=0
+    right=len(nums)
+    while left < right:
+        mid=(left+right) // 2
+        if nums[mid] == target:
+            return mid
+        if nums[mid] < target:
+            left=mid+1
+        else:
+            right=mid
+    return right
 
-
-
+def plusOne(self, digits: List[int]) -> List[int]:
+	for i in range(len(digits) - 1, -1, -1):
+		if digits[i] + 1 != 10:
+        	digits[i] += 1
+            return digits
+		digits[i] = 0
+        if i == 0:
+        	return [1] + digits
