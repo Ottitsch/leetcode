@@ -68,18 +68,38 @@ class WhatAreWeReplacing:
     from collections import namedtuple
 
     def run(self):
-        MyTuple = self.namedtuple("myTuple",["x", "y"])
-
+		MyTuple = WhatAreWeReplacing.namedtuple("myTuple", ["x", "y"])
         t1 = MyTuple(1,2)
-        t2 = self.replace(t1, x = 3)
-
+        t2 = WhatAreWeReplacing.replace(t1, x = 3)
         print(t1, t2)
 
 class MinMinister:
     def run(self):
         print(min(-0.0, False, round(7/2) - 4.0, float("nan"), key = lambda x: -x))
+ 
+class ANumberWalksIntoABase:
+    def run(self):
+        print(0b10 + 0o10 + 0x10)
 
+class A():
+    __num=5
+    def getNum(self):
+        return self.__num
+
+class MyNameIs():
+    def run(self):
+        a = A()
+        a.__num=4
+
+        print(f"{a.getNum()}{len(a.__dict__)}{a.__num}")
+
+
+class SoHowBigIsX():
+    import sys
+    def run(self):
+        x = 5
+        print(self.sys.getsizeof(x))
 
 
 if __name__ == "__main__":
-    MinMinister().run()
+    SoHowBigIsX().run()
