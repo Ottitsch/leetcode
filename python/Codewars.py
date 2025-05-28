@@ -28,3 +28,10 @@ def dna_to_rna(dna):
             rna+='U'
             continue
         rna+=char
+
+def opposite(number):
+    return number * -1
+
+print(opposite(1),opposite(14),opposite(-34))
+
+
