@@ -413,8 +413,13 @@ def removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:
     current.next = current.next.next
     return head
 
-
-
+def rangeBitWiseAnd(left: int, right: int) -> int:
+    response = 0
+    while left != right:   
+        left >>= 1
+        right >>= 1
+        response += 1
+    return left << response
 
 
 
