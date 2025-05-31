@@ -46,3 +46,14 @@ def make_chocolate(small, big, goal):
         return remaining
     return -1
 
+def xyz_there(str):
+    if len(str) == 0:
+        return False
+    for char in range(len(str)-2):
+        if str[char:char+3] != "xyz":
+            continue
+        if str[char-1] != "." or char == 0:
+            return True
+    return False
+
+print(xyz_there('xyz'))
