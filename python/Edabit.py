@@ -137,3 +137,9 @@ def tidy_link(url, name, *hover_text):
         return '['+name+']('+url+')'
 
 print(tidy_link("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "Click Me!"))
+
+def mood_today(mood="neutral"):
+    return "Today, I am feeling " + mood
+
+print(mood_today())
+print(mood_today("happy"))
