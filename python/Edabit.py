@@ -143,3 +143,11 @@ def mood_today(mood="neutral"):
 
 print(mood_today())
 print(mood_today("happy"))
+
+def parity_analysis(num):
+    return (sum(int(d) for d in str(num))) % 2 == num % 2
+
+print(parity_analysis(243))
+print(parity_analysis(12))
+print(parity_analysis(3))
+
