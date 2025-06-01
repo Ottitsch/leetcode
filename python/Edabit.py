@@ -151,3 +151,12 @@ print(parity_analysis(243))
 print(parity_analysis(12))
 print(parity_analysis(3))
 
+def valid(num):
+   return num.isdigit() and len(num) in (4, 6)
+
+print(valid("1234"))
+print(valid("45135"))
+print(valid("89abc1"))
+print(valid("900876"))
+print(valid(" 4983"))
+
