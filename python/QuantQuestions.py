@@ -20,3 +20,18 @@ grace = 1
 
 solution = frank + grace + david + frank + frank
 print(solution)
+
+# Least Multiple of 15
+"""
+What is the least positive multiple of 15 whose digits consist of 1's and 0's only?
+"""
+
+#number is divisible by 5 if it ends in 0
+#number is divisible by 3 if the 1's add up to 3
+#therefore smallest number is 1110
+#code to check if smaller number exists:
+for i in range(1,1111):
+    if i % 15 != 0:
+        continue
+    if all(c in '01' for c in str(i)):
+        print(i)
