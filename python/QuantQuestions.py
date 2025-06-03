@@ -25,7 +25,6 @@ print(solution)
 """
 What is the least positive multiple of 15 whose digits consist of 1's and 0's only?
 """
-
 #number is divisible by 5 if it ends in 0
 #number is divisible by 3 if the 1's add up to 3
 #therefore smallest number is 1110
@@ -35,3 +34,17 @@ for i in range(1,1111):
         continue
     if all(c in '01' for c in str(i)):
         print(i)
+
+# Seating Drama
+"""
+On a circular table of 5 seats, five people denoted 1,2,3,4,5 are seated. 4 wishes to sit immediately to the right of 2 while 2 sits immediately to the right of 5. Additionally 1 does not want to sit next to either one of 2 or 5. Who is to the left of 5?
+"""
+#4 wants to sit right of 2
+#2 wants to sit to the right of 5
+#1 does not want to sit next to 2 or 5
+
+#5,2,4,1,3
+#-> 3 
+
+
+
