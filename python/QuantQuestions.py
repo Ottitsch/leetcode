@@ -1,6 +1,7 @@
 """
     Ensemble of Quant Questions
 """
+import math
 
 # Bridge Corssing
 """
@@ -44,7 +45,12 @@ On a circular table of 5 seats, five people denoted 1,2,3,4,5 are seated. 4 wish
 #1 does not want to sit next to 2 or 5
 
 #5,2,4,1,3
-#-> 3 
+#-> 3
 
-
+# 2D Paths I
+"""
+You are playing a 2D game where your character is trapped within a 6×6 grid. Your character starts at (1,1) and can only move up and right. How many possible paths can your character take to get to (6,6)?
+"""
+solution = math.factorial(12) // (math.factorial(6) * math.factorial(6))
+print(solution)
 
