@@ -65,4 +65,13 @@ A room of four couples greet each other by shaking hands. If each person shakes 
 solution = 8*6 // 2
 print(solution)
 
+# Theater Seating
+"""
+Your taking your 10 students to the theater, the 5 boys and 5 girls are seated in a row. To ensure that the children are engaged during the movie, the teacher states that no two children of the same gender can sit next to each other. How many arrangements of the kids are possible?
+"""
+solution = math.factorial(5) * math.factorial(5) * 2
+print(solution)
+
+
+
 
