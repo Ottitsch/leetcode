@@ -54,3 +54,15 @@ You are playing a 2D game where your character is trapped within a 6×6 grid. Yo
 solution = math.factorial(12) // (math.factorial(6) * math.factorial(6))
 print(solution)
 
+# Couple Handshakes
+"""
+A room of four couples greet each other by shaking hands. If each person shakes the hand of every other person besides their partner, how many handshakes occur?
+"""
+#4 couples -> 8 people
+#each person shakes 6 people's hands
+#8*6
+#one handshake consists of 2 people shaking hands
+solution = 8*6 // 2
+print(solution)
+
+
