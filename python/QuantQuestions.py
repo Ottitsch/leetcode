@@ -72,6 +72,28 @@ Your taking your 10 students to the theater, the 5 boys and 5 girls are seated i
 solution = math.factorial(5) * math.factorial(5) * 2
 print(solution)
 
+# Basic Dice Game I
+"""
+A casino offers a game with a 6-sided die where you're paid the value of the roll.
+You can roll once and choose to keep the value, or re-roll once and take the second result.
+What is the fair value of this game?
+"""
+
+#Expected value of a single roll of a 6-sided die
+#(1+2+3+4+5+6)/6 = 3.5
+#Player will re-roll if first roll is 1, 2, or 3 (since 3.5 is better)
+#Player will keep if first roll is 4, 5, or 6
+
+#Case 1: Re-roll on 1, 2, 3 => 3 out of 6 outcomes => probability 0.5
+#Expected value of re-roll = 3.5
+#Contribution to total EV: 0.5 * 3.5 = 1.75
+
+#Case 2: Keep 4, 5, 6 => average = (4+5+6)/3 = 5
+#Contribution to total EV: 0.5 * 5 = 2.5
+
+#Total expected value (fair value) = 1.75 + 2.5
+solution = 1.75 + 2.5
+print(solution)
 
 
 
