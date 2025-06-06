@@ -107,4 +107,18 @@ on this game if you play once?
 solution = (-7 + 2 + 2 + 0) / 4
 print(solution)  # prints -0.75
 
-
+# Probability of Unfair Coin I
+"""
+You have a pile of 100 coins. 1 of the coins is an unfair coin and has heads on both sides. The remaining 99 coins are fair coins. You randomly select a coin from the pile and flip it 10 times. The coin lands heads all 10 times. Calculate the probability that the coin you selected is the unfair coin.
+"""
+# Step 1 - Bayes Theorem
+# P(Unfair | 10H) = (P(10H | Unfair) * P(Unfair) / P(10H)
+# Step 2 - Compute the components
+pUnfair = 1/100
+pFair = 99/100
+p10hUnfair = 1
+p10hFair = 0.5**10
+p10h = p10hUnfair * pUnfair + p10hFair * pFair
+# Step 3 - Plug into Bayes Theorem
+pUnfair10h = pUnfair / p10h
+print(pUnfair10h)
