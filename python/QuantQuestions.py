@@ -82,10 +82,10 @@ What is the fair value of this game?
 #(1+2+3+4+5+6)/6 = 3.5
 #Player will re-roll if first roll is 1, 2, or 3 (since 3.5 is better)
 #Player will keep if first roll is 4, 5, or 6
-# Case 1: Re-roll on 1, 2, 3 => 3 out of 6 outcomes => probability 0.5
+# Case 1: Re-roll on 1, 2, 3 -> 3 out of 6 outcomes -> probability 0.5
 #Expected value of re-roll = 3.5
 #Contribution to total EV: 0.5 * 3.5 = 1.75
-# Case 2: Keep 4, 5, 6 => average = (4+5+6)/3 = 5
+# Case 2: Keep 4, 5, 6 -> average = (4+5+6)/3 = 5
 #Contribution to total EV: 0.5 * 5 = 2.5
 # Total expected value (fair value) = 1.75 + 2.5
 solution = 1.75 + 2.5
@@ -98,10 +98,10 @@ but you lose $7 if you flip two heads. What is your expected profit/loss
 on this game if you play once?
 """
 # Possible outcomes (each with probability 1/4):
-#   HH → payoff = -7
-#   HT → payoff = 2
-#   TH → payoff = 2
-#   TT → payoff = 0
+#   HH -> payoff = -7
+#   HT -> payoff = 2
+#   TH -> payoff = 2
+#   TT -> payoff = 0
 # Sum of payoffs over all equally likely outcomes = (-7) + 2 + 2 + 0 = -3
 # Expected value = (sum of payoffs) / 4 = -3/4 = -0.75
 solution = (-7 + 2 + 2 + 0) / 4
