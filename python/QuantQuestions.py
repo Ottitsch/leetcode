@@ -2,6 +2,7 @@
     Ensemble of Quant Questions
 """
 import math
+import itertools
 
 # Bridge Corssing
 """
@@ -122,3 +123,28 @@ p10h = p10hUnfair * pUnfair + p10hFair * pFair
 # Step 3 - Plug into Bayes Theorem
 pUnfair10h = pUnfair / p10h
 print(pUnfair10h)
+
+# The Last Airbender
+"""
+Four cards labelled water, earth, fire, and air are placed in front of you faced down. You flip each of the cards over one at a time. You win if you flip over both the air and water cards before the fire card. Otherwise, you lose. What is the probability that you win? 
+"""
+cards = ['water', 'earth', 'fire', 'air']
+win_count = 0
+total = 0
+
+for perm in itertools.permutations(cards):
+    total += 1
+    fire_index = perm.index('fire')
+    if perm.index('air') < fire_index and perm.index('water') < fire_index:
+        win_count += 1
+
+probability = win_count / total
+print(probability)
+
+
+
+
+
+
+
+
