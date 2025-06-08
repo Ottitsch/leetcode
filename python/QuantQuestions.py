@@ -141,8 +141,20 @@ for perm in itertools.permutations(cards):
 probability = win_count / total
 print(probability)
 
+# Modified Even Coins
+"""
+n coins are laid out in front of you. One of the coins is fair, while the other n−1 have probability 0<λ<1 of showing heads. If all n coins are flipped, find the probability of an even amount of heads.
+"""
+def modified_even_heads_prob(n, lam):
+    # Compute product term
+    product = (1 - 2 * 0.5) * ((1 - 2 * lam) ** (n - 1))
+    return (1 + product) / 2
 
-
+# Example usage and sanity check
+en = modified_even_heads_prob(5, 0.3)
+print(f"For n=5, λ=0.3: P(even heads) = {en}")
+# Notice that since (1-2*0.5)=0, the result is always 0.5
+print("In fact, for any n ≥ 1 and any 0<λ<1, P(even heads) =", modified_even_heads_prob(10, 0.7))
 
 
 
