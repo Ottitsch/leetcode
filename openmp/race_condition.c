@@ -20,6 +20,17 @@ int main() {
     }
     printf("Sum: %d\n", sum);
 
+    //fixed with critical
+    #pragma omp parallel for
+    for (int i = 0; i < 10000; i++) {
+        #pragma omp critical
+        {
+            sum += i;
+        }
+    }
+
+    printf("Sum: %d\n", sum);
+
     return 0;
 }
 
