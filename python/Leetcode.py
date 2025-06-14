@@ -421,6 +421,14 @@ def rangeBitWiseAnd(left: int, right: int) -> int:
         response += 1
     return left << response
 
+def checkStraightLine(coordinates: list[list[int]]) -> bool:
+    x0,y0 = coordinates[0]
+    x1,y1 = coordinates[1]
+    for x, y in coordinates[2:]:
+			f (x1 - x0) * (y - y0) != (y1 - y0) * (x - x0):
+				return False
+    return True 
+
 
 
 
