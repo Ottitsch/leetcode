@@ -146,3 +146,13 @@ def plusOne(self, digits: List[int]) -> List[int]:
 		digits[i] = 0
         if i == 0:
         	return [1] + digits
+
+def isValid(s: str) -> bool:
+    d = {'(': ')', '{': '}', '[': ']'}
+    stack = []
+    for i in s:
+        if i in d:  # 1
+            stack.append(i)
+        elif len(stack) == 0 or d[stack.pop()] != i:  # 2
+            return False
+    return len(stack) == 0
