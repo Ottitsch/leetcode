@@ -45,7 +45,5 @@ def travel_distance(avg_speed, travel_time):
     travel_kms = travel_miles * KM_PER_MILE
     return travel_kms
 
-print(travel_distance(600, 60))
-print(travel_distance(800, 60))
-
-
+def remove_exclamation_marks(s):
+	return s.replace('!', '')
