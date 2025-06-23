@@ -160,3 +160,11 @@ print(valid("89abc1"))
 print(valid("900876"))
 print(valid(" 4983"))
 
+def convert_to_hex(word):
+	return ' '.join(f"{ord(c):02x}" for c in word)
+
+print(convert_to_hex("hello world"))
+print(convert_to_hex("Big Boi"))
+print(convert_to_hex("Marty Poppinson"))
+
+
