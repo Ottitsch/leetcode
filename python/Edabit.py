@@ -167,4 +167,26 @@ print(convert_to_hex("hello world"))
 print(convert_to_hex("Big Boi"))
 print(convert_to_hex("Marty Poppinson"))
 
+def bonus(days):
+    if days <= 32:
+        return 0
+    bonus = 0
+    if days > 32:
+        bonus += (min(days, 40) - 32) * 325
+    if days > 40:
+        bonus += (min(days, 48) - 40) * 550
+    if days > 48:
+        bonus += (days - 48) * 600
+    return bonus
+        
+
+print(bonus(15))
+print(bonus(37))
+print(bonus(50))
+
+
+
+
+
+
 
