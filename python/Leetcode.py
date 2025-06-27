@@ -428,7 +428,8 @@ def checkStraightLine(coordinates: list[list[int]]) -> bool:
     for x, y in coordinates[2:]:
         if (x1 - x0) * (y - y0) != (y1 - y0) * (x - x0):
             return False
-    return True"""
+    return True
+"""
 
 def validIp(temp: str) -> bool:
     if len(temp) > 3 or len(temp) == 0:
@@ -455,7 +456,18 @@ def restoreIpAddresses(s: str) -> list[str]:
     solveIp(ans, "", 0, s, 0)
     return ans
 
-print(restoreIpAddresses("0000"))
+
+def convertToTitle(columnNumber: int) -> str:
+    output = ""
+    while columnNumber > 0:
+        output = chr(ord('A') + (columnNumber - 1) % 26) + output
+        columnNumber = (columnNumber - 1) // 26
+    return output
+
+print(convertToTitle(1))
+print(convertToTitle(28))
+print(convertToTitle(701))
+
 
 
 
