@@ -421,16 +421,41 @@ def rangeBitWiseAnd(left: int, right: int) -> int:
         response += 1
     return left << response
 
+"""
 def checkStraightLine(coordinates: list[list[int]]) -> bool:
     x0,y0 = coordinates[0]
     x1,y1 = coordinates[1]
     for x, y in coordinates[2:]:
-			f (x1 - x0) * (y - y0) != (y1 - y0) * (x - x0):
-				return False
-    return True 
+        if (x1 - x0) * (y - y0) != (y1 - y0) * (x - x0):
+            return False
+    return True"""
+
+def validIp(temp: str) -> bool:
+    if len(temp) > 3 or len(temp) == 0:
+        return False
+    if len(temp) > 1 and temp[0] == '0':
+        return False
+    if len(temp) and int(temp) > 255:
+        return False
+    return True
+
+def solveIp(ans, output, ind, s, dots):
+    if dots == 3:
+        if validIp(s[ind:]):
+            ans.append(output + s[ind:])
+        return
+    for i in range(ind, min(ind+3, len(s))):
+        if validIp(s[ind:i+1]):
+            new_output = output + s[ind:i+1] + '.'
+            solveIp(ans, new_output, i+1, s, dots+1)
 
 
+def restoreIpAddresses(s: str) -> list[str]:
+    ans = []
+    solveIp(ans, "", 0, s, 0)
+    return ans
 
+print(restoreIpAddresses("0000"))
 
 
 
