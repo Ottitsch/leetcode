@@ -56,4 +56,11 @@ def xyz_there(str):
             return True
     return False
 
-print(xyz_there('xyz'))
+def front_times(str, n):
+    front = str[0:3]
+    return front*n
+print(front_times("Chocolate",3))
+print(front_times("Chocolate",2))
+print(front_times("Abc",3))
+print(front_times("Ab",3))
+
