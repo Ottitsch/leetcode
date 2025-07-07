@@ -475,6 +475,13 @@ def restoreIpAddresses(s: str) -> list[str]:
     solveIp(ans, "", 0, s, 0)
     return ans
 
+def titleToNumber(self, columnTitle: str) -> int:
+        col_num = 0
+        for char in columnTitle:
+            col_num = col_num * 26 + (ord(char) - 64)
+
+        return col_num
+
 
 
 
