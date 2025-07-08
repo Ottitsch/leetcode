@@ -156,3 +156,28 @@ def isValid(s: str) -> bool:
         elif len(stack) == 0 or d[stack.pop()] != i:  # 2
             return False
     return len(stack) == 0
+
+def validIp(temp: str) -> bool:
+    if len(temp) > 3 or len(temp) == 0:
+        return False
+    if len(temp) > 1 and temp[0] == '0':
+        return False
+    if len(temp) and int(temp) > 255:
+        return False
+    return True
+
+def solveIp(ans, output, ind, s, dots):
+    if dots == 3:
+        if validIp(s[ind:]):
+            ans.append(output + s[ind:])
+        return
+    for i in range(ind, min(ind+3, len(s))):
+        if validIp(s[ind:i+1]):
+            new_output = output + s[ind:i+1] + '.'
+            solveIp(ans, new_output, i+1, s, dots+1)
+
+
+def restoreIpAddresses(s: str) -> list[str]:
+    ans = []
+    solveIp(ans, "", 0, s, 0)
+    return ans
