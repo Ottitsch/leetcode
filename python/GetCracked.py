@@ -120,5 +120,10 @@ class arrrg():
         product_val = a * b * c
         return product_val // sum_val
 
+class MaximalSnake():
+    def run(self):
+        x=1
+        y=1
+        print(x-----y)
 if __name__ == "__main__":
-    arrrg().run()
+    MaximalSnake().run()
