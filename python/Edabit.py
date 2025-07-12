@@ -184,6 +184,24 @@ print(bonus(15))
 print(bonus(37))
 print(bonus(50))
 
+def loves_me(n):
+    phrases = []
+    for i in range(n):
+        if i % 2 == 0:
+            phrase = "Loves me"
+        else:
+            phrase = "Loves me not"
+        
+        if i == n - 1:
+            phrase = phrase.upper()
+        
+        phrases.append(phrase)
+    
+    return ", ".join(phrases)
+
+print(loves_me(3))
+print(loves_me(6))
+print(loves_me(1))
 
 
 
