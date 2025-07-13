@@ -47,3 +47,11 @@ def travel_distance(avg_speed, travel_time):
 
 def remove_exclamation_marks(s):
 	return s.replace('!', '')
+
+def are_you_playing_banjo(name):
+    if(name[0].lower()=="r"):
+       return name + " plays banjo" 
+    return name + " does not play banjo"
+
+print(are_you_playing_banjo("Rex"))
+print(are_you_playing_banjo("tom"))
