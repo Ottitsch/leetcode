@@ -64,3 +64,12 @@ print(front_times("Chocolate",2))
 print(front_times("Abc",3))
 print(front_times("Ab",3))
 
+def cigar_party(cigars, is_weekend):
+    if is_weekend:
+        return cigars>=40
+    return cigars>=40 and cigars<=60
+
+
+print(cigar_party(30, False))
+print(cigar_party(50, False))
+print(cigar_party(70, True))
