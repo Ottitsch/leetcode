@@ -120,3 +120,18 @@ for item in mylist:
 This optimization can make a noticeable difference in tight loops or high-frequency calls.
 """
 
+# Negative‑Zero Surprise
+x = -0.5
+print(f"{x:=+#08.0f}")
+"""
+Why it shows -000000. :
+
+1. `.0f`: rounds −0.5 to −0.0 (banker’s‑rounding).
+2. `+`: always show the sign  →  `-`.
+3. `=` & `0`: put zero‑padding after the sign.
+4. Field‑width 8  →  six zeros of padding.
+5. `#`: keep the decimal point.
+
+So the eight‑char result is  -000000.
+"""
+
