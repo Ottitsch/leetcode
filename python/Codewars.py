@@ -55,3 +55,10 @@ def are_you_playing_banjo(name):
 
 print(are_you_playing_banjo("Rex"))
 print(are_you_playing_banjo("tom"))
+
+from functools import reduce
+import operator
+
+def grow(arr):
+    return reduce(operator.mul, arr)
+
