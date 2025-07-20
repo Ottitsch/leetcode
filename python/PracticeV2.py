@@ -199,3 +199,12 @@ def generateParenthesis(self, n: int) -> List[str]:
         dfs(0, 0, "")
 
         return res
+
+def convertToTitle(columnNumber: int) -> str:
+    output = ""
+    while columnNumber > 0:
+        output = chr(ord('A') + (columnNumber - 1) % 26) + output
+        columnNumber = (columnNumber - 1) // 26
+    return output
+
+
