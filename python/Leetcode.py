@@ -480,4 +480,5 @@ def fib(self, n: int) -> int:
         for i in range(n): a,b=b,a+b
         return a
 
-
+def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
+	return date(year, month, day).strftime("%A")
