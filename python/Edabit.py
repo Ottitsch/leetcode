@@ -203,6 +203,35 @@ print(loves_me(3))
 print(loves_me(6))
 print(loves_me(1))
 
+import re
+
+def dakiti(phrase):
+    words = phrase.split()
+    def extract_digit(word):
+        for char in word:
+            if char.isdigit():
+                return int(char)
+        return float('inf')
+ 
+    def remove_digit(word):
+        return ''.join(char for char in word if not char.isdigit())
+
+    sorted_words = sorted(words, key=extract_digit)
+    cleaned_words = [remove_digit(word) for word in sorted_words]
+
+    return ' '.join(cleaned_words)
+
+
+print(dakiti("worl2d hell1o"))
+print(dakiti("i2s th1s a3 t4est  "))
+print(dakiti("yo2u cr3azy a1re ?"))
+
+
+
+
+
+
+
 
 
 
