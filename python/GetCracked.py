@@ -125,5 +125,14 @@ class MaximalSnake():
         x=1
         y=1
         print(x-----y)
+
+class LoopLastLaugh():
+    def run(self):
+        multipliers = []
+        for i in range(4):
+            multipliers.append(lambda x: i*x)
+
+        print(multipliers[1](10))
+
 if __name__ == "__main__":
-    MaximalSnake().run()
+    LoopLastLaugh().run()
