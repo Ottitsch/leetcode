@@ -134,5 +134,16 @@ class LoopLastLaugh():
 
         print(multipliers[1](10))
 
+class ReducedButNotOut():
+    def run(self):
+        gen = (x for x in [0, False, None, 1, 2, 0, 3])
+
+        any(gen)
+        print(next(gen), end="")
+
+        all(gen)
+        print(next(gen), end="")
+
+
 if __name__ == "__main__":
-    LoopLastLaugh().run()
+    ReducedButNotOut().run()
