@@ -207,4 +207,6 @@ def convertToTitle(columnNumber: int) -> str:
         columnNumber = (columnNumber - 1) // 26
     return output
 
+def numJewelsInStones(jewels: str, stones: str) -> int:
+    return sum(i in jewels for i in stones)
 
