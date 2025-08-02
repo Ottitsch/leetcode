@@ -62,3 +62,8 @@ import operator
 def grow(arr):
     return reduce(operator.mul, arr)
 
+def bool_to_word(boolean):
+    if boolean:
+        return "Yes"
+    return "No"
+
