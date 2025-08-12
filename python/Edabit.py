@@ -226,6 +226,13 @@ print(dakiti("worl2d hell1o"))
 print(dakiti("i2s th1s a3 t4est  "))
 print(dakiti("yo2u cr3azy a1re ?"))
 
+def to_binary(hex_num):
+    return format(hex_num, '08b')
+
+print(to_binary(0xFF))  # "11111111"
+print(to_binary(0xAA))  # "10101010"
+print(to_binary(0xFA))  # "11111010"
+
 
 
 
