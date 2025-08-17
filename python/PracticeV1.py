@@ -491,6 +491,19 @@ def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
                 return i
         return -1  
 
+def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+        res = 0
+        current_length = 0
+        n = len(nums)
+        
+        for i in range(2, n):
+            if nums[i] - nums[i - 1] == nums[i - 1] - nums[i - 2]:
+                current_length += 1
+                res += current_length
+            else:
+                current_length = 0
+        
+        return res
 
 
 
