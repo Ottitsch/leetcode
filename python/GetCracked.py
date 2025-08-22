@@ -144,6 +144,17 @@ class ReducedButNotOut():
         all(gen)
         print(next(gen), end="")
 
+class Fooor2():
+    def run(self):
+        x = 999
+
+        for x in range(3):
+            print(x, end="")
+            x=10
+        
+        print(x,end="")
+
+
 
 if __name__ == "__main__":
-    ReducedButNotOut().run()
+    Fooor2().run()
