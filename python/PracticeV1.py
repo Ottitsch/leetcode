@@ -505,6 +505,17 @@ def numberOfArithmeticSlices(self, nums: List[int]) -> int:
         
         return res
 
+def getMinDistance(self, nums: List[int], target: int, start: int) -> int:
+        m=10000
+        for i in range(start,len(nums)):
+            if nums[i]==target:
+                m=min(m,abs(start-i))
+                
+        for i in range(0,start):
+            if nums[i]==target:
+                m=min(m,abs(start-i))
+                
+        return m
 
 
 
