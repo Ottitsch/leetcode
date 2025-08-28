@@ -499,3 +499,27 @@ def countSquares(self, grid: List[List[int]]) -> int:
                     grid[i][j] += min(grid[i-1][j],grid[i][j-1],grid[i-1][j-1])
                 ans += grid[i][j]
         return ans
+
+    def shortestToChar(self, s: str, c: str) -> List[int]:
+        c_index = []
+        res =[]
+
+        for i in range(len(s)):
+            if s[i] == c:
+                c_index.append(i)
+        
+        if len(c_index) == 1:
+            for i in range(len(s)):
+                res.append(abs(c_index[0] - i))
+        else:
+            left = 0
+            right = 1
+        
+            for i in range(len(s)):
+                if (i > c_index[right]) & (right < len(c_index)-1):
+                    left += 1
+                    right += 1                    
+                min_dis = min(abs(c_index[left] - i), abs(c_index[right] - i))
+                res.append(min_dis)
+        
+        return res
