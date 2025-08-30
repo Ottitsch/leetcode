@@ -235,3 +235,13 @@ def kthSmallestPrimeFraction(self, arr: List[int], k: int) -> List[int]:
             a, b = heappop(minHeap)[1]
         return [a, b]
 
+def array_rank_transform(arr):
+    dup = sorted(arr)
+    mp = {dup[0]: 1}
+    for i in range(1, len(dup)):
+        if dup[i] > dup[i - 1]:
+            mp[dup[i]] = mp[dup[i - 1]] + 1
+        else:
+            mp[dup[i]] = mp[dup[i - 1]]
+    
+    return [mp[x] for x in arr]
