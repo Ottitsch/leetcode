@@ -265,3 +265,7 @@ def numDecodings(self, s: str) -> int:
             dp[i] += dp[i - 2]
 
     return dp[n]
+
+def grayCode(self, n: int) -> List[int]:
+    result = [i ^ (i // 2) for i in range(pow(2, n))]
+    return result
