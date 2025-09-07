@@ -38,3 +38,16 @@ bin/
 *~
 *.un~
 
+### R / renv ###
+# renv caches and local library
+renv/library/
+renv/staging/
+renv/python/
+
+# lockfile you usually DO want to keep (don’t ignore)
+# renv.lock
+
+# optional: project settings (can be regenerated)
+renv/.cache/
+renv/profiles/
+
