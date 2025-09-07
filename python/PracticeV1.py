@@ -517,6 +517,24 @@ def getMinDistance(self, nums: List[int], target: int, start: int) -> int:
                 
         return m
 
+def shoppingOffers(self, price: List[int], special: List[List[int]], needs: List[int]) -> int:
+        key = str(needs)
+        if key in self.memo:
+            return self.memo[key]
+
+        best_price = sum(noItem * cost for noItem, cost in zip(needs, price))
+        
+        for offer in special:
+            needs_update = [noItems - offer[i] for i, noItems in enumerate(needs)]
+            
+            if any(x < 0 for x in needs_update):
+                continue
+
+            best_price = min(best_price, 
+                           self.shoppingOffers(price, special, needs_update) + offer[-1])
+        
+        self.memo[key] = best_price
+        return best_price
 
 
 

@@ -499,3 +499,50 @@ def countSquares(self, grid: List[List[int]]) -> int:
                     grid[i][j] += min(grid[i-1][j],grid[i][j-1],grid[i-1][j-1])
                 ans += grid[i][j]
         return ans
+
+    def shortestToChar(self, s: str, c: str) -> List[int]:
+        c_index = []
+        res =[]
+
+        for i in range(len(s)):
+            if s[i] == c:
+                c_index.append(i)
+        
+        if len(c_index) == 1:
+            for i in range(len(s)):
+                res.append(abs(c_index[0] - i))
+        else:
+            left = 0
+            right = 1
+        
+            for i in range(len(s)):
+                if (i > c_index[right]) & (right < len(c_index)-1):
+                    left += 1
+                    right += 1                    
+                min_dis = min(abs(c_index[left] - i), abs(c_index[right] - i))
+                res.append(min_dis)
+        
+        return res
+
+def maxAverageRatio(self, classes, extraStudents):
+        # Max heap: store (-gain, index)
+        pq = []
+        for i, (p, t) in enumerate(classes):
+            curr = p / t
+            newPr = (p + 1) / (t + 1)
+            heapq.heappush(pq, (-(newPr - curr), i))
+
+        # Distribute extra students
+        while extraStudents > 0:
+            gain, i = heapq.heappop(pq)
+            p, t = classes[i]
+            classes[i][0] += 1
+            classes[i][1] += 1
+            curr = classes[i][0] / classes[i][1]
+            newPr = (classes[i][0] + 1) / (classes[i][1] + 1)
+            heapq.heappush(pq, (-(newPr - curr), i))
+            extraStudents -= 1
+
+        # Compute final average pass ratio
+        ans = sum(p / t for p, t in classes)
+        return ans / len(classes)
