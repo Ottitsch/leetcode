@@ -525,14 +525,12 @@ def countSquares(self, grid: List[List[int]]) -> int:
         return res
 
 def maxAverageRatio(self, classes, extraStudents):
-        # Max heap: store (-gain, index)
         pq = []
         for i, (p, t) in enumerate(classes):
             curr = p / t
             newPr = (p + 1) / (t + 1)
             heapq.heappush(pq, (-(newPr - curr), i))
 
-        # Distribute extra students
         while extraStudents > 0:
             gain, i = heapq.heappop(pq)
             p, t = classes[i]
@@ -542,7 +540,22 @@ def maxAverageRatio(self, classes, extraStudents):
             newPr = (classes[i][0] + 1) / (classes[i][1] + 1)
             heapq.heappush(pq, (-(newPr - curr), i))
             extraStudents -= 1
-
-        # Compute final average pass ratio
+			
         ans = sum(p / t for p, t in classes)
         return ans / len(classes)
+	
+def toGoatLatin(self, S: str) -> str:
+        temp = []
+        ans = " "
+        i = 1
+        vowel = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        for word in S.split(" "):
+            if word[0] in vowel:
+                word = word + "ma"
+            else:
+                word = word[1:] + word[0] + "ma"
+            word = word + "a"*i
+            i = i + 1
+            temp.append(word)
+			
+        return ans.join(temp)
