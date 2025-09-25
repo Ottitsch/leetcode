@@ -579,3 +579,13 @@ def readBinaryWatch(self, num):
     return ['%d:%02d' % (h, m)
             for h in range(12) for m in range(60)
             if (bin(h) + bin(m)).count('1') == num]
+
+def productExceptSelf(self, nums):
+	zeros = nums.count(0)
+	if zeros > 1:
+		return [0] * len(nums)
+	prd = reduce((lambda x,y: x*y if y!=0 else x), nums)
+	if zeros:
+		return map(lambda x: 0 if x!= 0 else prd, nums)
+	else:
+		return map(lambda x: prd/x, nums)
