@@ -589,3 +589,8 @@ def productExceptSelf(self, nums):
 		return map(lambda x: 0 if x!= 0 else prd, nums)
 	else:
 		return map(lambda x: prd/x, nums)
+
+def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:	
+        a = re.split(r'\W+', paragraph.lower())
+        b = [w for w in a if w not in banned]
+        return max(b, key = b.count)
