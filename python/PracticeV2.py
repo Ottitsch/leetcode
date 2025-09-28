@@ -285,3 +285,7 @@ def toGoatLatin(self, S: str) -> str:
             temp.append(word)
 			
         return ans.join(temp)
+
+def minCostToMoveChips(self, chips: List[int]) -> int:
+	odds = sum(x % 2 for x in chips)
+	return min(odds, len(chips) - odds)
