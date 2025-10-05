@@ -289,3 +289,19 @@ def toGoatLatin(self, S: str) -> str:
 def minCostToMoveChips(self, chips: List[int]) -> int:
 	odds = sum(x % 2 for x in chips)
 	return min(odds, len(chips) - odds)
+
+def isTrionic(self, nums: List[int]) -> bool:
+        res, stack = [], []
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1]:
+                return False
+            if nums[i] > nums[i - 1]:
+                res.append(True)
+            else:
+                res.append(False)
+        print(res)
+        for i in res:
+            if stack and stack[-1] == i:
+                continue
+            stack.append(i)
+        return stack == [True, False, True]
